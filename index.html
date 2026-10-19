@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aish Catering Singkawang - Cita Rasa Istimewa Tradisi Singkawang</title>
+  <meta name="description" content="Jasa katering halal, higienis, dan terpercaya di Singkawang. Melayani prasmanan pernikahan, nasi kotak bento, tumpeng megah, dan snack box tradisi khas Singkawang.">
+  <meta name="keywords" content="Aish Catering, catering singkawang, katering pernikahan singkawang, nasi kotak singkawang, choipan singkawang, katering halal singkawang">
+  
+  <!-- Google Fonts: Playfair Display & Plus Jakarta Sans (Singkawang Heritage Culinary) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons for aesthetics -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <link rel="stylesheet" href="css/style.css?v=2">
+</head>
+<body>
+
+  <!-- NAVIGATION HEADER (Concept Style) -->
+  <header class="site-header" id="header">
+    <div class="container header-container">
+      
+      <!-- Brand Logo -->
+      <a href="index.html" class="brand-logo" id="brandLogo">
+        <div class="logo-circle-utensils">
+          <i class="fa-solid fa-utensils"></i>
+        </div>
+        <div class="logo-text">
+          <span class="logo-brand-title">Aish Catering</span>
+          <span class="logo-brand-subtitle">CATERING &amp; EVENT</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Menu -->
+      <nav class="desktop-nav" aria-label="Navigasi Utama">
+        <ul class="nav-list">
+          <li>
+            <a href="index.html#hero" class="nav-link active">Beranda</a>
+          </li>
+          <li>
+            <a href="menu.html" class="nav-link">Menu</a>
+          </li>
+          <li>
+            <a href="index.html#paket-catering" class="nav-link">Paket Acara</a>
+          </li>
+          <li>
+            <a href="index.html#keunggulan" class="nav-link">Tentang Kami</a>
+          </li>
+          <li>
+            <a href="index.html#kontak" class="nav-link">Kontak</a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Right Header Actions -->
+      <div class="header-actions">
+        <!-- Hubungi Kami Button -->
+        <a href="https://wa.me/6281234567890?text=Halo%20Aish%20Catering,%20saya%20ingin%20konsultasi%20menu%20dan%20booking%20acara" target="_blank" class="btn-concept-consult" id="headerBookingBtn" aria-label="Hubungi Kami">
+          <i class="fa-regular fa-comment-dots"></i>
+          <span>Hubungi Kami</span>
+        </a>
+
+        <!-- Mobile Menu Toggle -->
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Buka Menu Mobile">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- MOBILE NAV DRAWER -->
+  <div class="mobile-menu-overlay" id="mobileOverlay"></div>
+  <aside class="mobile-nav-drawer" id="mobileDrawer">
+    <div class="drawer-header">
+      <div class="logo-text">
+        <span class="logo-brand-title" style="color: #DFBD77; font-size: 1.35rem;">Aish Catering</span>
+        <span class="logo-brand-subtitle" style="color: #C5A059; font-size: 0.62rem; letter-spacing: 0.12em;">CATERING &amp; EVENT</span>
+      </div>
+      <button class="drawer-close" id="mobileDrawerClose" aria-label="Tutup Menu">&times;</button>
+    </div>
+    <ul class="mobile-nav-list">
+      <li><a href="index.html#hero" class="mobile-nav-link active"><i class="fa-solid fa-house"></i> <span>Beranda</span></a></li>
+      <li><a href="menu.html" class="mobile-nav-link"><i class="fa-solid fa-bowl-rice"></i> <span>Menu</span></a></li>
+      <li><a href="index.html#paket-catering" class="mobile-nav-link"><i class="fa-solid fa-utensils"></i> <span>Paket Acara</span></a></li>
+      <li><a href="index.html#keunggulan" class="mobile-nav-link"><i class="fa-solid fa-circle-info"></i> <span>Tentang Kami</span></a></li>
+      <li><a href="index.html#kontak" class="mobile-nav-link"><i class="fa-solid fa-phone"></i> <span>Kontak</span></a></li>
+    </ul>
+    <div class="drawer-footer">
+      <a href="https://wa.me/6281234567890?text=Halo%20Aish%20Catering,%20saya%20ingin%20konsultasi%20menu" target="_blank" class="btn btn-gold w-100 mb-2">
+        <i class="fa-regular fa-comment-dots"></i> Hubungi Kami (WhatsApp)
+      </a>
+      <button class="btn btn-outline-white w-100" id="drawerBookingBtn">
+        <i class="fa-regular fa-calendar-check"></i> Booking Tanggal Acara
+      </button>
+      <div class="drawer-hours-note">
+        <i class="fa-regular fa-clock"></i> Buka Setiap Hari: 08.00 – 20.00 WIB
+      </div>
+    </div>
+  </aside>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero-section" id="hero">
+      <div class="hero-bg-glow"></div>
+      <div class="container hero-container">
+        
+        <!-- Hero Left Column -->
+        <div class="hero-content">
+          <h1 class="hero-title">
+            Cita Rasa Istimewa Tradisi Singkawang untuk Setiap Momen Berharga.
+          </h1>
+
+          <p class="hero-desc">
+            Menghadirkan perpaduan kaya rempah Nusantara, keaslian kuliner tradisi Singkawang yang halal & higienis, serta kemewahan sajian prasmanan untuk pernikahan, syukuran, dan event eksklusif di Singkawang dan sekitarnya.
+          </p>
+
+          <div class="hero-actions">
+            <button class="btn btn-gold btn-lg" id="heroConsultBtn">
+              <span>Konsultasi Acara Sekarang</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </button>
+            <a href="https://wa.me/6281345678910?text=Halo%20Aish%20Catering,%20saya%20ingin%20konsultasi%20katering%20acara%20saya" target="_blank" class="btn btn-glass btn-lg">
+              <i class="fa-brands fa-whatsapp text-green-glow"></i>
+              <span>Chat Kami Cepat via WhatsApp</span>
+            </a>
+          </div>
+
+          <!-- Trust Badges Row -->
+          <div class="hero-trust-bar">
+            <div class="trust-item">
+              <div class="trust-icon"><i class="fa-solid fa-shield-halved"></i></div>
+              <div class="trust-info">
+                <strong>100% Halal</strong>
+                <span>Certified Resmi LPPOM</span>
+              </div>
+            </div>
+            <div class="trust-item">
+              <div class="trust-icon"><i class="fa-solid fa-champagne-glasses"></i></div>
+              <div class="trust-info">
+                <strong>800+ Event</strong>
+                <span>Pernikahan & Dinas Sukses</span>
+              </div>
+            </div>
+            <div class="trust-item">
+              <div class="trust-icon"><i class="fa-solid fa-leaf"></i></div>
+              <div class="trust-info">
+                <strong>Bahan Segar</strong>
+                <span>Pilihan Terbaik Pasar Lokal</span>
+              </div>
+            </div>
+            <div class="trust-item">
+              <div class="trust-icon"><i class="fa-solid fa-utensils"></i></div>
+              <div class="trust-info">
+                <strong>Chef Asli</strong>
+                <span>Resep Otentik Singkawang</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Right Column (Showcase Card) -->
+        <div class="hero-visual">
+          <div class="hero-image-wrapper">
+            <!-- Floating Years Badge -->
+            <div class="floating-exp-badge">
+              <span class="badge-num">12+</span>
+              <span class="badge-text">Tahun Melayani</span>
+            </div>
+
+            <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1200&q=80" 
+                 alt="Jamuan Prasmanan Mewah Pernikahan Aish Catering Singkawang" 
+                 class="hero-main-img" 
+                 id="heroMainImg" 
+                 loading="eager">
+
+            <!-- Floating Review Card -->
+            <div class="hero-review-card">
+              <div class="review-header">
+                <span class="review-client">MAHASURYA WEDDING</span>
+                <div class="review-stars">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                </div>
+              </div>
+              <h4 class="review-package">Prasmanan Harmoni Singkawang</h4>
+              <p class="review-quote">
+                "Sajian lengkap 12 menu tradisi dan modern dengan dekorasi prasmanan mewah khas Aish Catering."
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 2: KEUNGGULAN / VALUE PROPOSITION -->
+    <section class="section section-values" id="keunggulan">
+      <div class="container">
+        
+        <div class="section-header-split">
+          <div class="header-left">
+            <span class="pill-label">KEUNGGULAN AISH CATERING</span>
+            <h2 class="section-title">
+              Warisan Kuliner Bersahaja dengan Kualitas Tanpa Kompromi
+            </h2>
+          </div>
+          <div class="header-right">
+            <p class="section-lead">
+              Kami memadukan resep turun-temurun tradisi kuliner Singkawang dengan standar higienis modern dan pelayanan bintang lima. Setiap hidangan disajikan penuh cinta dan integritas.
+            </p>
+          </div>
+        </div>
+
+        <div class="values-grid">
+          <!-- Card 1 -->
+          <div class="value-card">
+            <div class="value-icon-box">
+              <i class="fa-solid fa-mortar-pestle"></i>
+            </div>
+            <h3 class="value-card-title">Rempah Segar Alami Khas Tradisi</h3>
+            <p class="value-card-desc">
+              Dipasak langsung oleh juru masak berpengalaman berbekal rempah tradisional pilihan dari pasar lokal Singkawang, sesuai takaran racikan otentik yang harum, gurih, dan lezat tanpa kompromi rasa.
+            </p>
+            <a href="#menu-signature" class="card-arrow-link">
+              <span>Eksplorasi pembuatan bumbu</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="value-card">
+            <div class="value-icon-box">
+              <i class="fa-solid fa-scale-balanced"></i>
+            </div>
+            <h3 class="value-card-title">Kualitas Terstandarisasi & Terjamin Halal</h3>
+            <p class="value-card-desc">
+              Menjamin 100% bahan halal berkualitas tinggi tanpa kompromi. Mulai dari pemilihan daging segar, bumbu, hingga proses memasak bersih di dapur pusat tersertifikasi higienis.
+            </p>
+            <button class="card-arrow-link" onclick="openHalalModal()">
+              <span>Tentang komitmen halal kami</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="value-card">
+            <div class="value-icon-box">
+              <i class="fa-solid fa-bell-concierge"></i>
+            </div>
+            <h3 class="value-card-title">Fleksibilitas Porsi & Custom Menu</h3>
+            <p class="value-card-desc">
+              Setiap acara memiliki keunikan tersendiri. Kami menyediakan pilihan menu fleksibel mulai prasmanan, tumpeng, nasi kotak, bento, hingga stall live cooking sesuai anggaran dan konsep acara Anda.
+            </p>
+            <a href="#kalkulator-biaya" class="card-arrow-link">
+              <span>Lihat opsi kustomisasi acara</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- HERITAGE SECTION DIVIDER -->
+    <div class="heritage-divider" aria-hidden="true">
+      <div class="divider-line"></div>
+      <div class="leaf-trio-accent">
+        <i class="fa-solid fa-leaf" style="transform: scaleX(-1);"></i>
+        <i class="fa-solid fa-crown"></i>
+        <i class="fa-solid fa-leaf"></i>
+      </div>
+      <div class="divider-line"></div>
+    </div>
+
+    <!-- SECTION 3: KATEGORI LAYANAN CATERING TERFAVORIT -->
+    <section class="section section-categories" id="paket-catering">
+      <div class="container">
+        
+        <div class="section-center-header">
+          <span class="pill-label pill-gold">PILIHAN TERBAIK UNTUK ACARA ANDA</span>
+          <h2 class="section-title text-center">Kategori Layanan Catering Terfavorit</h2>
+          <p class="section-subtitle text-center">
+            Pilihan paket catering lengkap dan terstruktur, dirancang rapi untuk memanjakan tamu dan memudahkan penyelenggara acara.
+          </p>
+        </div>
+
+        <div class="categories-grid" id="categoriesContainer">
+          <!-- Rendered via JavaScript for clean interactivity -->
+        </div>
+
+      </div>
+    </section>
+
+    <!-- INTERACTIVE SECTION: KALKULATOR ESTIMASI BIAYA CATERING -->
+    <section class="section section-calculator" id="kalkulator-biaya">
+      <div class="container">
+        <div class="calculator-card">
+          <div class="calc-header">
+            <span class="pill-label pill-gold">SIMULASI ANGGARAN INTERAKTIF</span>
+            <h2 class="calc-title">Hitung Estimasi Biaya Catering Anda</h2>
+            <p class="calc-desc">
+              Dapatkan perkiraan rincian biaya transparan dalam hitungan detik sesuai jumlah tamu dan paket yang Anda inginkan.
+            </p>
+          </div>
+
+          <div class="calc-body-grid">
+            <!-- Left Config -->
+            <div class="calc-config-col">
+              
+              <div class="calc-group">
+                <label class="calc-label"><i class="fa-solid fa-utensils text-gold"></i> 1. Pilih Jenis Paket Catering</label>
+                <div class="package-radio-grid" id="calcPackageOptions">
+                  <!-- Dynamically populated or rendered -->
+                </div>
+              </div>
+
+              <div class="calc-group">
+                <div class="slider-header-wrap">
+                  <label class="calc-label" for="portionRange"><i class="fa-solid fa-users text-gold"></i> 2. Jumlah Tamu / Porsi</label>
+                  <span class="portion-display"><strong id="portionNumber">250</strong> Porsi</span>
+                </div>
+                <input type="range" id="portionRange" class="styled-range" min="30" max="1500" step="10" value="250">
+                <div class="range-ticks">
+                  <span>30 porsi</span>
+                  <span>500</span>
+                  <span>1.000</span>
+                  <span>1.500+ porsi</span>
+                </div>
+              </div>
+
+              <div class="calc-group">
+                <label class="calc-label"><i class="fa-solid fa-plus-circle text-gold"></i> 3. Tambahan Stall & Layanan Spesial (Opsional)</label>
+                <div class="addons-list" id="calcAddonsContainer">
+                  <!-- Addons checkboxes -->
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Right Summary Box -->
+            <div class="calc-summary-col">
+              <div class="summary-box">
+                <div class="summary-header">
+                  <span class="summary-badge">RINGKASAN ESTIMASI</span>
+                  <h3 class="summary-title" id="summaryPackageName">Prasmanan Pernikahan & Resepsi Adat</h3>
+                </div>
+
+                <div class="summary-breakdown">
+                  <div class="breakdown-row">
+                    <span>Harga Satuan Paket</span>
+                    <strong id="summaryUnitPrice">Rp 48.000 / porsi</strong>
+                  </div>
+                  <div class="breakdown-row">
+                    <span>Total Porsi</span>
+                    <strong id="summaryTotalPortions">250 Porsi</strong>
+                  </div>
+                  <div class="breakdown-row">
+                    <span>Subtotal Makanan</span>
+                    <strong id="summaryFoodSubtotal">Rp 12.000.000</strong>
+                  </div>
+                  <div class="breakdown-row" id="summaryAddonsRow">
+                    <span>Tambahan Stall & Fitur</span>
+                    <strong id="summaryAddonsSubtotal">Rp 0</strong>
+                  </div>
+                  <div class="breakdown-divider"></div>
+                  <div class="breakdown-row total-row">
+                    <div>
+                      <span class="total-label">Total Perkiraan Biaya</span>
+                      <small class="tax-note">*Termasuk perlengkapan, meja buffet & pramusaji</small>
+                    </div>
+                    <span class="total-price" id="summaryGrandTotal">Rp 12.000.000</span>
+                  </div>
+                </div>
+
+                <div class="summary-perks">
+                  <div class="perk-item"><i class="fa-solid fa-check-circle text-gold"></i> Free Tester Makanan untuk Keluarga</div>
+                  <div class="perk-item"><i class="fa-solid fa-check-circle text-gold"></i> Gratis Konsultasi Menu & Penataan Meja</div>
+                  <div class="perk-item"><i class="fa-solid fa-check-circle text-gold"></i> Bebas Biaya Antar se-Kota Singkawang</div>
+                </div>
+
+                <button class="btn btn-gold w-100 btn-calc-action" id="btnSendCalcToWA">
+                  <i class="fa-brands fa-whatsapp"></i>
+                  <span>Kirim Rincian Ini ke WhatsApp Admin</span>
+                </button>
+                <button class="btn btn-outline-white w-100 mt-2" id="btnBookFromCalc">
+                  <i class="fa-regular fa-calendar-check"></i>
+                  <span>Booking Tanggal Sekarang</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: 6 MENU SIGNATURE KEBANGGAAN SINGKAWANG -->
+    <section class="section section-signature" id="menu-signature">
+      <div class="container">
+        
+        <div class="section-header-split">
+          <div class="header-left">
+            <span class="pill-label pill-dark">MENU SIGNATURE KHAS KAMI</span>
+            <h2 class="section-title">
+              6 Menu Signature Kebanggaan Singkawang
+            </h2>
+          </div>
+          <div class="header-right">
+            <p class="section-lead">
+              Hidangan otentik warisan kuliner yang diolah dengan rempah pilihan khas Singkawang, halal, gurih, dan menggugah selera.
+            </p>
+          </div>
+        </div>
+
+        <!-- Filter tabs for dishes -->
+        <div class="menu-filter-bar">
+          <button class="menu-filter-btn active" data-filter="all">Semua Menu Signature</button>
+          <button class="menu-filter-btn" data-filter="prasmanan">Menu Prasmanan</button>
+          <button class="menu-filter-btn" data-filter="nasi-kotak">Menu Nasi Kotak / Bento</button>
+          <button class="menu-filter-btn" data-filter="snackbox">Kudapan & Snack Box</button>
+        </div>
+
+        <!-- 6 Signature Items Grid -->
+        <div class="signature-grid" id="signatureContainer">
+          <!-- Rendered via Javascript -->
+        </div>
+
+        <!-- Big Download Menu Catalog Banner -->
+        <div class="download-catalog-banner">
+          <div class="catalog-banner-inner">
+            <div class="catalog-left">
+              <div class="catalog-icon-wrap">
+                <i class="fa-solid fa-book-open-reader"></i>
+              </div>
+              <div>
+                <h3 class="catalog-title">Buku Menu Lengkap & Pricelist Digital 2026</h3>
+                <p class="catalog-desc">Dapatkan brosur komplit berisi daftar 50+ variasi menu prasmanan, racikan lauk, pondokan live stall, dan paket hemat.</p>
+              </div>
+            </div>
+            <button class="btn btn-gold btn-catalog" id="btnOpenMenuCatalog">
+              <i class="fa-solid fa-file-arrow-down"></i>
+              <span>Lihat & Download Buku Menu (PDF)</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- HERITAGE SECTION DIVIDER -->
+    <div class="heritage-divider" aria-hidden="true">
+      <div class="divider-line"></div>
+      <div class="leaf-trio-accent">
+        <i class="fa-solid fa-leaf" style="transform: scaleX(-1);"></i>
+        <i class="fa-solid fa-crown"></i>
+        <i class="fa-solid fa-leaf"></i>
+      </div>
+      <div class="divider-line"></div>
+    </div>
+
+    <!-- SECTION 5: TESTIMONI & ULASAN KELUARGA -->
+    <section class="section section-testimonials" id="testimoni">
+      <div class="container">
+        
+        <div class="section-header-split">
+          <div class="header-left">
+            <span class="pill-label">ULASAN PELANGGAN & KEPUASAN</span>
+            <h2 class="section-title">
+              Dipercaya Lebih dari 1.200+ Keluarga & Institusi di Singkawang
+            </h2>
+            <p class="section-lead mt-1">
+              Ulasan jujur dari keluarga yang telah mempercayakan momen spesial pada jamuan lezat dan pelayanan prima Aish Catering.
+            </p>
+          </div>
+          
+          <div class="header-right stats-boxes-wrap">
+            <div class="stat-score-card">
+              <span class="stat-number">4.9<span class="stat-max">/5</span></span>
+              <div class="stat-stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+              <span class="stat-sub">850+ Ulasan Bintang</span>
+            </div>
+            <div class="stat-score-card">
+              <span class="stat-number">98%</span>
+              <div class="stat-icon-recom"><i class="fa-solid fa-heart text-gold"></i></div>
+              <span class="stat-sub">Klien Merekomendasikan</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3 Testimonial Cards -->
+        <div class="testimonials-grid" id="testimonialsContainer">
+          <!-- Rendered via JS -->
+        </div>
+
+      </div>
+    </section>
+
+    <!-- HERITAGE SECTION DIVIDER -->
+    <div class="heritage-divider" aria-hidden="true">
+      <div class="divider-line"></div>
+      <div class="leaf-trio-accent">
+        <i class="fa-solid fa-leaf" style="transform: scaleX(-1);"></i>
+        <i class="fa-solid fa-crown"></i>
+        <i class="fa-solid fa-leaf"></i>
+      </div>
+      <div class="divider-line"></div>
+    </div>
+
+    <!-- SECTION 6: CTA BANNER (RENCANAKAN JAMUAN ISTIMEWA ANDA) -->
+    <section class="section section-cta-banner">
+      <div class="container">
+        <div class="cta-banner-box">
+          <div class="cta-banner-grid">
+            
+            <!-- Left Info -->
+            <div class="cta-left">
+              <div class="cta-brand-badge">
+                <span class="cta-emblem"><i class="fa-solid fa-crown text-gold"></i></span>
+                <div>
+                  <strong>Aish Catering Singkawang</strong>
+                  <small>Solusi Katering Mewah & Halal Terpercaya</small>
+                </div>
+              </div>
+
+              <h2 class="cta-main-title">
+                Rencanakan Jamuan Istimewa Anda Hari Ini.
+              </h2>
+
+              <p class="cta-main-desc">
+                Diskusikan tema acara, komposisi menu, serta penyesuaian porsi langsung bersama Tim Konsultan Aish Catering Singkawang. Dapatkan tester & penawaran terbaik.
+              </p>
+
+              <div class="cta-buttons-wrap">
+                <button class="btn btn-gold btn-lg" id="ctaBookingBtn">
+                  <i class="fa-regular fa-calendar-check"></i>
+                  <span>Booking Tanggal & Konsultasi Sekarang</span>
+                </button>
+                <a href="tel:081345678910" class="btn btn-outline-white btn-lg">
+                  <i class="fa-solid fa-phone"></i>
+                  <span>+62 813-4567-8910</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Right Perks List -->
+            <div class="cta-right">
+              <div class="cta-perks-card">
+                <h4 class="perks-title">Keistimewaan Layanan Kami:</h4>
+                <ul class="perks-list">
+                  <li>
+                    <span class="check-icon"><i class="fa-solid fa-check"></i></span>
+                    <div>
+                      <strong>Gratis Food Tester</strong>
+                      <span>Khusus untuk pemesanan minimal 200 porsi prasmanan resepsi.</span>
+                    </div>
+                  </li>
+                  <li>
+                    <span class="check-icon"><i class="fa-solid fa-check"></i></span>
+                    <div>
+                      <strong>Layanan Pramusaji Profesional</strong>
+                      <span>Tim staf berseragam rapi, higienis, dan terlatih melayani tamu VIP.</span>
+                    </div>
+                  </li>
+                  <li>
+                    <span class="check-icon"><i class="fa-solid fa-check"></i></span>
+                    <div>
+                      <strong>Peralatan Prasmanan Mewah</strong>
+                      <span>Roll top chaffing gold, meja buffet bertema, serta dekorasi bunga segar.</span>
+                    </div>
+                  </li>
+                </ul>
+
+                <button class="cta-link-availability" id="btnCheckAvailabilityLink">
+                  <span>JADWAL PENUH? CEK KETERSEDIAAN HARI INI</span>
+                  <i class="fa-solid fa-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer" id="kontak">
+    <div class="container">
+      <div class="footer-grid">
+        
+        <!-- Col 1: Bio & Halal Badges -->
+        <div class="footer-col footer-col-brand">
+          <div class="footer-logo">
+            <div class="logo-symbol">
+              <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="20" cy="20" r="19" stroke="#CBA358" stroke-width="1.5" />
+                <path d="M20 7L24 16H16L20 7Z" fill="#CBA358" />
+                <path d="M12 21C12 16.5817 15.5817 13 20 13C24.4183 13 28 16.5817 28 21H12Z" fill="#0C2A20" stroke="#CBA358" stroke-width="1.2" />
+                <rect x="10" y="22" width="20" height="2.5" rx="1" fill="#CBA358" />
+              </svg>
+            </div>
+            <div class="logo-text">
+              <span class="logo-title">AISH CATERING</span>
+              <span class="logo-subtitle">AUTHENTIC SINGKAWANG</span>
+            </div>
+          </div>
+          
+          <p class="footer-desc">
+            Penyedia jasa katering kuliner terkemuka di Singkawang yang memadukan keaslian bumbu khas tradisi lokal dengan standar higienis bintang lima. Berpengalaman melayani ratusan resepsi akbar, acara instansi, hingga syukuran keluarga.
+          </p>
+
+          <div class="footer-cert-badges">
+            <div class="cert-pill">
+              <i class="fa-solid fa-certificate text-gold"></i>
+              <span>100% Halal Certified</span>
+            </div>
+            <div class="cert-pill">
+              <i class="fa-solid fa-shield-heart text-gold"></i>
+              <span>Dinkes Higienis</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Col 2: Lokasi & Kontak -->
+        <div class="footer-col">
+          <h4 class="footer-heading">Lokasi Dapur & Kantor</h4>
+          <ul class="footer-contact-list">
+            <li>
+              <i class="fa-solid fa-location-dot"></i>
+              <span>Jl. Pasiran No. 45, Singkawang Barat, Kota Singkawang, Kalimantan Barat 79123</span>
+            </li>
+            <li>
+              <i class="fa-solid fa-phone"></i>
+              <span>(0562) 631-889 / 0813-4567-8910</span>
+            </li>
+            <li>
+              <i class="fa-brands fa-whatsapp"></i>
+              <span>+62 813-4567-8910 (WhatsApp Reservasi)</span>
+            </li>
+            <li>
+              <i class="fa-regular fa-clock"></i>
+              <span>Buka Setiap Hari: 08.00 - 20.00 WIB</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Layanan Utama -->
+        <div class="footer-col">
+          <h4 class="footer-heading">Layanan Utama</h4>
+          <ul class="footer-links-list">
+            <li><a href="#paket-catering">Prasmanan Pernikahan & Resepsi Adat</a></li>
+            <li><a href="#paket-catering">Nasi Kotak & Bento Box Premium</a></li>
+            <li><a href="#paket-catering">Tumpeng Adat & Syukuran Megah</a></li>
+            <li><a href="#paket-catering">Coffee Break & Snack Box Otentik</a></li>
+            <li><a href="#kalkulator-biaya">Paket Custom & Pondokan Live Stall</a></li>
+            <li><a href="#menu-signature">Kue Khas Singkawang & Choipan</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Jangkauan Wilayah & Social -->
+        <div class="footer-col">
+          <h4 class="footer-heading">Jangkauan Pelayanan</h4>
+          <p class="footer-coverage-text">
+            Melayani pemesanan katering untuk seluruh area Kota Singkawang dan sekitarnya:
+          </p>
+          <div class="coverage-tags">
+            <span class="cov-tag">Singkawang Barat</span>
+            <span class="cov-tag">Singkawang Tengah</span>
+            <span class="cov-tag">Singkawang Selatan</span>
+            <span class="cov-tag">Singkawang Utara</span>
+            <span class="cov-tag">Singkawang Timur</span>
+            <span class="cov-tag">Kab. Bengkayang</span>
+            <span class="cov-tag">Kab. Sambas</span>
+          </div>
+
+          <div class="footer-social-wrap">
+            <span class="social-label">Ikuti Media Sosial Kami:</span>
+            <div class="social-icons">
+              <a href="#" aria-label="Instagram" class="social-icon-btn"><i class="fa-brands fa-instagram"></i></a>
+              <a href="#" aria-label="Facebook" class="social-icon-btn"><i class="fa-brands fa-facebook-f"></i></a>
+              <a href="#" aria-label="TikTok" class="social-icon-btn"><i class="fa-brands fa-tiktok"></i></a>
+              <a href="#" aria-label="YouTube" class="social-icon-btn"><i class="fa-brands fa-youtube"></i></a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="footer-bottom-bar">
+        <div class="bottom-copy">
+          © 2026 Aish Catering Singkawang. Hak Cipta Dilindungi Undang-Undang.
+        </div>
+        <div class="bottom-links">
+          <a href="#" onclick="openTermsModal(event)">Syarat & Ketentuan</a>
+          <span class="sep">•</span>
+          <a href="#" onclick="openPrivacyModal(event)">Kebijakan Privasi</a>
+          <span class="sep">•</span>
+          <a href="#" onclick="openDeliveryModal(event)">Jangkauan Pengiriman Catering</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== MODALS & DRAWERS ==================== -->
+
+  <!-- 1. CART / EVENT BAG DRAWER -->
+  <div class="cart-drawer-overlay" id="cartOverlay"></div>
+  <aside class="cart-drawer" id="cartDrawer">
+    <div class="drawer-header">
+      <div class="drawer-header-info">
+        <h3 class="drawer-title"><i class="fa-solid fa-basket-shopping text-gold"></i> Rencana Pesanan Acara</h3>
+        <span class="drawer-subtitle">Daftar paket dan menu yang Anda pilih</span>
+      </div>
+      <button class="drawer-close" id="cartDrawerClose">&times;</button>
+    </div>
+
+    <div class="drawer-body">
+      <div class="cart-items-list" id="cartItemsList">
+        <!-- Rendered via JS -->
+      </div>
+      
+      <div class="cart-empty-state" id="cartEmptyState">
+        <div class="empty-icon"><i class="fa-solid fa-utensils"></i></div>
+        <h4>Keranjang Pesanan Masih Kosong</h4>
+        <p>Silakan pilih paket katering atau menu signature khas Singkawang untuk menambahkan ke rencana acara Anda.</p>
+        <a href="#paket-catering" class="btn btn-gold btn-sm" onclick="closeCartDrawer()">Eksplorasi Paket</a>
+      </div>
+    </div>
+
+    <div class="drawer-checkout-footer" id="cartFooter">
+      <div class="drawer-total-row">
+        <span>Perkiraan Total</span>
+        <strong id="cartDrawerTotalPrice">Rp 0</strong>
+      </div>
+      <button class="btn btn-gold w-100" id="btnCheckoutWhatsApp">
+        <i class="fa-brands fa-whatsapp"></i> Lanjutkan & Konsultasi ke WhatsApp
+      </button>
+      <button class="btn btn-outline-white w-100 mt-2" id="btnClearCart">
+        Kosongkan Keranjang
+      </button>
+    </div>
+  </aside>
+
+  <!-- 2. BOOKING & CONSULTATION MODAL -->
+  <div class="modal-overlay" id="bookingModalOverlay">
+    <div class="modal-card">
+      <button class="modal-close" id="bookingModalClose">&times;</button>
+      
+      <div class="modal-header">
+        <span class="pill-label pill-gold">FORMULIR RESERVASI & KONSULTASI</span>
+        <h3 class="modal-title">Rencanakan Acara Bersama Aish Catering</h3>
+        <p class="modal-desc">Isi formulir singkat di bawah ini. Tim konsultan katering kami akan segera menghubungi Anda dengan penawaran terbaik dan jadwal food tester.</p>
+      </div>
+
+      <form id="bookingForm" class="modal-form">
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="clientName">Nama Lengkap Penanggung Jawab *</label>
+            <input type="text" id="clientName" required placeholder="Contoh: Bpk. Hendra / Ibu Ratna">
+          </div>
+          <div class="form-group">
+            <label for="clientPhone">Nomor WhatsApp Aktif *</label>
+            <input type="tel" id="clientPhone" required placeholder="Contoh: 08123456789">
+          </div>
+          <div class="form-group">
+            <label for="eventType">Jenis Acara *</label>
+            <select id="eventType" required>
+              <option value="">Pilih Jenis Acara...</option>
+              <option value="Resepsi Pernikahan">Resepsi Pernikahan / Pesta Adat</option>
+              <option value="Lamaran & Pertunangan">Acara Lamaran & Pertunangan</option>
+              <option value="Syukuran Rumah / Toko">Syukuran Rumah / Toko Baru</option>
+              <option value="Rapat / Seminar Instansi">Rapat & Seminar Instansi / Kantor</option>
+              <option value="Ulang Tahun & Gathering">Ulang Tahun & Family Gathering</option>
+              <option value="Aqiqah & Doa Bersama">Aqiqah & Doa Bersama</option>
+              <option value="Lainnya">Acara Lainnya</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="eventDate">Tanggal Pelaksanaan Acara *</label>
+            <input type="date" id="eventDate" required>
+          </div>
+          <div class="form-group">
+            <label for="eventPortion">Perkiraan Jumlah Porsi / Tamu *</label>
+            <input type="number" id="eventPortion" min="20" placeholder="Contoh: 300" required>
+          </div>
+          <div class="form-group">
+            <label for="packagePref">Pilihan Paket Awal</label>
+            <select id="packagePref">
+              <option value="Prasmanan Pernikahan">Prasmanan Pernikahan & Resepsi (Mulai 48rb)</option>
+              <option value="Nasi Kotak Bento Premium">Nasi Kotak & Bento Box (Mulai 28rb)</option>
+              <option value="Tumpeng Adat Megah">Tumpeng Adat & Syukuran (Mulai 450rb)</option>
+              <option value="Coffee Break & Snack Box">Coffee Break & Snack Box (Mulai 17.5rb)</option>
+              <option value="Custom Menu Sesuai Budget">Custom Menu / Belum Menentukan</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group mt-2">
+          <label for="eventLocation">Lokasi Acara / Alamat di Singkawang & Sekitarnya</label>
+          <input type="text" id="eventLocation" placeholder="Contoh: Gedung Pancasila Singkawang / Rumah Jl. Diponegoro">
+        </div>
+
+        <div class="form-group mt-2">
+          <label for="eventNotes">Catatan Khusus / Permintaan Menu Favorit</label>
+          <textarea id="eventNotes" rows="3" placeholder="Contoh: Ingin ada live stall Choipan dan menu Sapo Tahu Seafood"></textarea>
+        </div>
+
+        <div class="form-submit-row">
+          <button type="submit" class="btn btn-gold btn-lg w-100">
+            <i class="fa-brands fa-whatsapp"></i>
+            <span>Kirim Pemesanan & Hubungkan ke WhatsApp</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- 3. DISH DETAIL MODAL -->
+  <div class="modal-overlay" id="dishModalOverlay">
+    <div class="modal-card modal-card-dish">
+      <button class="modal-close" id="dishModalClose">&times;</button>
+      <div class="dish-modal-layout" id="dishModalContent">
+        <!-- Rendered dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. MENU CATALOG DIGITAL MODAL -->
+  <div class="modal-overlay" id="catalogModalOverlay">
+    <div class="modal-card modal-card-catalog">
+      <button class="modal-close" id="catalogModalClose">&times;</button>
+      <div class="catalog-modal-header">
+        <span class="pill-label pill-gold">KATALOG RESMI 2026</span>
+        <h3 class="modal-title">Buku Menu & Pricelist Lengkap Aish Catering</h3>
+        <p class="modal-desc">Unduh dokumen PDF resmi atau baca ringkasan paket lengkap di bawah ini.</p>
+      </div>
+
+      <div class="catalog-sections-scroll">
+        <div class="catalog-pdf-preview-box">
+          <div class="preview-badge"><i class="fa-solid fa-file-pdf text-gold"></i> DOKUMEN DIGITAL TERSERTIFIKASI</div>
+          <h4>Katalog Lengkap Resepsi & Jamuan Aish Catering Singkawang 2026</h4>
+          <p>Memuat rincian paket prasmanan tipe Silver, Gold, Platinum, rincian menu nasi kotak bento, tumpeng tingkat, hingga paket live stall pernikahan.</p>
+          <div class="preview-stats">
+            <span><i class="fa-solid fa-check text-green"></i> Versi Terbaru 2026</span>
+            <span><i class="fa-solid fa-check text-green"></i> Lengkap Dengan Gambar</span>
+            <span><i class="fa-solid fa-check text-green"></i> Rincian Harga Transparan</span>
+          </div>
+          <button class="btn btn-gold mt-3" id="btnDownloadMockPDF">
+            <i class="fa-solid fa-download"></i> Unduh Brosur PDF Sekarang (Gratis)
+          </button>
+        </div>
+
+        <div class="catalog-packages-table mt-4">
+          <h4 class="table-title">Tabel Rangkuman Paket Populer</h4>
+          <div class="table-responsive">
+            <table class="styled-table">
+              <thead>
+                <tr>
+                  <th>Nama Paket</th>
+                  <th>Kisaran Porsi</th>
+                  <th>Menu Utama</th>
+                  <th>Fasilitas Tambahan</th>
+                  <th>Harga Mulai</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Prasmanan Silver</strong></td>
+                  <td>100 - 300 pax</td>
+                  <td>7 Menu Utama + 2 Dessert</td>
+                  <td>Meja buffet, alat makan, 2 pramusaji</td>
+                  <td>Rp 48.000 / porsi</td>
+                </tr>
+                <tr>
+                  <td><strong>Prasmanan Gold</strong></td>
+                  <td>300 - 800 pax</td>
+                  <td>9 Menu Utama + 3 Dessert</td>
+                  <td>Dekorasi prasmanan bunga, 4 pramusaji, tester</td>
+                  <td>Rp 58.000 / porsi</td>
+                </tr>
+                <tr>
+                  <td><strong>Prasmanan Platinum Royal</strong></td>
+                  <td>500 - 1500 pax</td>
+                  <td>12 Menu Lengkap + 2 Pondokan Stall</td>
+                  <td>Dekorasi VIP lengkap, seragam staf khusus, tester keluarga</td>
+                  <td>Rp 72.000 / porsi</td>
+                </tr>
+                <tr>
+                  <td><strong>Nasi Kotak Eksekutif</strong></td>
+                  <td>Min. 25 box</td>
+                  <td>Nasi Gurih, Ayam Lengkuas, Ati Ampela, Sambal</td>
+                  <td>Box eco-friendly tebal, cutlery pack, tisu, tusuk gigi</td>
+                  <td>Rp 28.000 / box</td>
+                </tr>
+                <tr>
+                  <td><strong>Tumpeng Adat Singkawang</strong></td>
+                  <td>20 - 40 pax</td>
+                  <td>Tumpeng Kuning, 7 Macam Lauk Tradisi</td>
+                  <td>Tampah bambu ukir garnish artistik, pisau tumpeng</td>
+                  <td>Rp 450.000 / paket</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. DATE AVAILABILITY CHECKER MODAL -->
+  <div class="modal-overlay" id="dateModalOverlay">
+    <div class="modal-card">
+      <button class="modal-close" id="dateModalClose">&times;</button>
+      <div class="modal-header">
+        <span class="pill-label pill-gold">CEK JADWAL CATERING</span>
+        <h3 class="modal-title">Cek Ketersediaan Slot Tanggal Acara</h3>
+        <p class="modal-desc">Pilih tanggal rencana acara Anda untuk mengecek kuota dapur dan jadwal pramusaji kami.</p>
+      </div>
+
+      <div class="date-check-box">
+        <div class="form-group">
+          <label for="checkDateInput">Pilih Tanggal Rencana Acara:</label>
+          <input type="date" id="checkDateInput">
+        </div>
+        <button class="btn btn-gold w-100 mt-2" id="btnRunDateCheck">
+          <i class="fa-solid fa-magnifying-glass"></i> Cek Status Ketersediaan
+        </button>
+
+        <div class="date-check-result" id="dateCheckResult" style="display: none;">
+          <!-- Dynamically filled -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATION CONTAINER -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- FLOATING WHATSAPP BUTTON -->
+  <a href="https://wa.me/6281345678910?text=Halo%20Aish%20Catering,%20saya%20ingin%20konsultasi%20paket%20catering" 
+     target="_blank" 
+     class="floating-wa-btn" 
+     id="floatingWaBtn" 
+     aria-label="Chat WhatsApp Aish Catering">
+    <div class="wa-tooltip">Chat Admin Fast Respon</div>
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <!-- SCRIPTS -->
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/livereload.js"></script>
+</body>
+</html>

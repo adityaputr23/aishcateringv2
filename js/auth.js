@@ -290,9 +290,9 @@ document.addEventListener('DOMContentLoaded', () => {
         if (matched) {
           setSessionUser(matched, rememberMe);
           showToast(`Selamat datang, ${matched.name}! Mengalihkan...`, 'success');
-          // Redirect ke halaman utama setelah login berhasil
+          // Redirect konsumen ke Menu Khusus Konsumen
           setTimeout(() => {
-            window.location.href = 'index.html';
+            window.location.href = 'menu-konsumen.html';
           }, 900);
         } else {
           showToast('Email/nomor WhatsApp atau kata sandi tidak cocok. Silakan coba lagi.', 'error');
@@ -377,9 +377,9 @@ document.addEventListener('DOMContentLoaded', () => {
         btnRegisterSubmit.disabled = false;
 
         showToast('Pendaftaran berhasil! Selamat datang di Aish Catering!', 'success');
-        // Redirect ke halaman utama setelah registrasi berhasil
+        // Redirect ke menu khusus konsumen setelah registrasi berhasil
         setTimeout(() => {
-          window.location.href = 'index.html';
+          window.location.href = 'menu-konsumen.html';
         }, 900);
       }, 700);
     });
@@ -402,7 +402,7 @@ document.addEventListener('DOMContentLoaded', () => {
         };
         setSessionUser(mockGoogleUser, true);
         showToast('Berhasil masuk dengan Google! Mengalihkan...', 'success');
-        setTimeout(() => { window.location.href = 'index.html'; }, 900);
+        setTimeout(() => { window.location.href = 'menu-konsumen.html'; }, 900);
       }, 1000);
     });
   }
@@ -423,8 +423,8 @@ document.addEventListener('DOMContentLoaded', () => {
               role: 'customer'
             };
             setSessionUser(mockWaUser, true);
-            showToast('Verifikasi OTP berhasil! Selamat datang.', 'success');
-            renderAuthState();
+            showToast('Verifikasi OTP berhasil! Mengalihkan ke menu konsumen...', 'success');
+            setTimeout(() => { window.location.href = 'menu-konsumen.html'; }, 900);
           } else if (otp !== null) {
             showToast('Kode OTP tidak sesuai (gunakan 1234 untuk demo).', 'error');
           }

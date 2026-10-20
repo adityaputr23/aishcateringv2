@@ -16,6 +16,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <link rel="stylesheet" href="css/style.css?v=2">
+  <link rel="stylesheet" href="css/checkout.css">
 </head>
 <body class="page-menu">
 
@@ -619,9 +620,265 @@
     <i class="fa-brands fa-whatsapp"></i>
   </a>
 
+  <!-- ==================== MODAL: LOGIN REQUIRED FOR CHECKOUT ==================== -->
+  <div class="modal-overlay" id="loginReqModalOverlay">
+    <div class="modal-card login-req-modal">
+      <button class="modal-close" id="closeLoginReqModal" aria-label="Tutup">&times;</button>
+      
+      <div class="login-req-icon-wrap">
+        <i class="fa-solid fa-lock"></i>
+      </div>
+
+      <span class="checkout-header-badge"><i class="fa-solid fa-shield-halved"></i> Autentikasi Konsumen</span>
+      <h3 class="login-req-title">Masuk untuk Melanjutkan Checkout</h3>
+      <p class="login-req-desc">
+        Untuk menerbitkan invoice pesanan resmi, mengamankan jadwal reservasi dapur, dan mendapatkan diskon VIP 5%, Anda wajib masuk ke akun terlebih dahulu.
+      </p>
+
+      <div class="login-req-benefits">
+        <div class="login-req-benefit-item">
+          <i class="fa-solid fa-circle-check"></i>
+          <span>Potongan diskon otomatis 5% untuk akun terdaftar</span>
+        </div>
+        <div class="login-req-benefit-item">
+          <i class="fa-solid fa-circle-check"></i>
+          <span>Pantau status verifikasi DP & persiapan dapur secara real-time</span>
+        </div>
+        <div class="login-req-benefit-item">
+          <i class="fa-solid fa-circle-check"></i>
+          <span>Tersimpan di sistem invoice resmi Aish Catering</span>
+        </div>
+      </div>
+
+      <div class="login-req-actions">
+        <button type="button" class="btn btn-gold w-100" onclick="AishCheckout.goToLogin()">
+          <i class="fa-solid fa-arrow-right-to-bracket"></i> Masuk ke Akun Sekarang
+        </button>
+        <button type="button" class="btn btn-outline-white w-100" onclick="AishCheckout.goToRegister()" style="color:#1d3e2f;border-color:rgba(197,160,89,0.5)">
+          <i class="fa-solid fa-user-plus"></i> Belum Punya Akun? Daftar Cepat
+        </button>
+        <button type="button" class="btn btn-sm" onclick="AishCheckout.closeLoginReqModal()" style="background:none;color:#7a8a80;margin-top:4px">
+          Kembali ke Keranjang
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== MODAL: CHECKOUT & KONFIRMASI ==================== -->
+  <div class="modal-overlay" id="checkoutModalOverlay">
+    <div class="modal-card checkout-modal-card">
+      <button class="modal-close" id="closeCheckoutModal" aria-label="Tutup">&times;</button>
+
+      <div>
+        <span class="checkout-header-badge"><i class="fa-solid fa-crown"></i> Checkout Resmi Konsumen</span>
+        <h3 class="checkout-title">Konfirmasi &amp; Rincian Reservasi</h3>
+        <p class="checkout-subtitle">Lengkapi detail acara dan pilih opsi pembayaran uang muka (DP 50%) untuk mengunci jadwal dapur.</p>
+      </div>
+
+      <form id="checkoutForm">
+        <div class="checkout-grid">
+          <!-- Left Column: Data Pemesan & Acara -->
+          <div>
+            <div class="checkout-section-box">
+              <div class="checkout-section-title">
+                <i class="fa-solid fa-user-shield"></i>
+                <span>Data Pemesan Terverifikasi</span>
+              </div>
+
+              <div class="checkout-user-card">
+                <div class="checkout-user-avatar" id="chkUserAvatar">CP</div>
+                <div>
+                  <div class="checkout-user-name" id="chkUserName">Nama Konsumen</div>
+                  <div class="checkout-user-meta" id="chkUserEmail">email@domain.com</div>
+                  <div class="checkout-user-meta" id="chkUserPhone">081234567890</div>
+                </div>
+              </div>
+
+              <div class="checkout-form-group">
+                <label class="checkout-form-label" for="chkEventDate">Tanggal Acara Pelaksanaan *</label>
+                <input type="date" id="chkEventDate" class="checkout-form-input" required>
+                <small style="font-size:0.7rem;color:#775a19">Pemesanan minimal H-3 dari hari ini</small>
+              </div>
+
+              <div class="checkout-form-group">
+                <label class="checkout-form-label" for="chkEventTime">Waktu / Sesi Acara *</label>
+                <select id="chkEventTime" class="checkout-form-input" required>
+                  <option value="Siang (11.00 - 15.00 WIB)">Sesi Siang (11.00 - 15.00 WIB)</option>
+                  <option value="Malam (18.00 - 22.00 WIB)">Sesi Malam (18.00 - 22.00 WIB)</option>
+                  <option value="Pagi (07.30 - 10.30 WIB)">Sesi Pagi (07.30 - 10.30 WIB)</option>
+                  <option value="Seharian / Fleksibel">Seharian Penuh / Resepsi Adat</option>
+                </select>
+              </div>
+
+              <div class="checkout-form-group">
+                <label class="checkout-form-label" for="chkEventAddress">Alamat Lengkap Gedung / Rumah di Singkawang *</label>
+                <textarea id="chkEventAddress" class="checkout-form-input" rows="2" required placeholder="Contoh: Gedung Pancasila Singkawang, Jl. Merdeka No. 12"></textarea>
+              </div>
+
+              <div class="checkout-form-group">
+                <label class="checkout-form-label" for="chkEventNotes">Catatan Khusus / Permintaan Meja Prasmanan</label>
+                <textarea id="chkEventNotes" class="checkout-form-input" rows="2" placeholder="Dekorasi tema warna, permintaan racikan bumbu, jam tiba tim pramusaji dll."></textarea>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Ringkasan Biaya & Pembayaran -->
+          <div>
+            <div class="checkout-section-box">
+              <div class="checkout-section-title">
+                <i class="fa-solid fa-receipt"></i>
+                <span>Ringkasan Menu Dipesan</span>
+              </div>
+
+              <div style="max-height: 140px; overflow-y: auto; margin-bottom: 12px;">
+                <table class="checkout-items-table">
+                  <thead>
+                    <tr>
+                      <th>Menu / Paket</th>
+                      <th>Jumlah</th>
+                      <th style="text-align:right;">Subtotal</th>
+                    </tr>
+                  </thead>
+                  <tbody id="chkItemsTableBody"></tbody>
+                </table>
+              </div>
+
+              <div class="checkout-calc-row">
+                <span>Subtotal Menu:</span>
+                <strong id="chkSubtotal">Rp 0</strong>
+              </div>
+              <div class="checkout-calc-row discount">
+                <span><i class="fa-solid fa-tag"></i> Diskon Konsumen VIP (5%):</span>
+                <span id="chkDiscount">- Rp 0</span>
+              </div>
+              <div class="checkout-calc-row total">
+                <span>Total Bersih:</span>
+                <span id="chkGrandTotal">Rp 0</span>
+              </div>
+              <div class="checkout-calc-row dp-highlight">
+                <span>Uang Muka / DP 50% Wajib:</span>
+                <strong id="chkDpAmount">Rp 0</strong>
+              </div>
+            </div>
+
+            <!-- Payment Methods -->
+            <div class="checkout-section-box" style="margin-top:14px">
+              <div class="checkout-section-title">
+                <i class="fa-solid fa-building-columns"></i>
+                <span>Pilih Metode Transfer Uang Muka</span>
+              </div>
+
+              <div class="payment-methods-grid">
+                <label class="payment-method-card selected">
+                  <input type="radio" name="chkPaymentMethod" value="BCA Transfer" checked>
+                  <div class="payment-method-info">
+                    <div class="payment-method-name">BCA Virtual / Rek</div>
+                    <div class="payment-method-desc">Transfer Bank BCA</div>
+                  </div>
+                </label>
+
+                <label class="payment-method-card">
+                  <input type="radio" name="chkPaymentMethod" value="Mandiri Transfer">
+                  <div class="payment-method-info">
+                    <div class="payment-method-name">Bank Mandiri</div>
+                    <div class="payment-method-desc">Transfer Bank Mandiri</div>
+                  </div>
+                </label>
+
+                <label class="payment-method-card" style="grid-column: 1 / -1;">
+                  <input type="radio" name="chkPaymentMethod" value="QRIS">
+                  <div class="payment-method-info">
+                    <div class="payment-method-name">QRIS Semua Bank &amp; E-Wallet</div>
+                    <div class="payment-method-desc">BCA, Mandiri, BSI, Gopay, OVO, Dana</div>
+                  </div>
+                </label>
+              </div>
+
+              <!-- Bank Detail Info Boxes -->
+              <div class="bank-detail-box" id="bcaDetailBox">
+                <div>Bank Central Asia (BCA)</div>
+                <div class="bank-acc-number">
+                  <span>1234-5678-90</span>
+                  <button type="button" class="btn-copy-acc" onclick="AishCheckout.copyBankAcc('1234567890')">Salin</button>
+                </div>
+                <div style="font-size:0.72rem;color:#775a19;margin-top:3px">a.n Aish Catering Singkawang</div>
+              </div>
+
+              <div class="bank-detail-box" id="mandiriDetailBox" style="display:none">
+                <div>Bank Mandiri</div>
+                <div class="bank-acc-number">
+                  <span>146-00-1234567-8</span>
+                  <button type="button" class="btn-copy-acc" onclick="AishCheckout.copyBankAcc('1460012345678')">Salin</button>
+                </div>
+                <div style="font-size:0.72rem;color:#775a19;margin-top:3px">a.n Aish Catering Singkawang</div>
+              </div>
+
+              <div class="bank-detail-box" id="qrisDetailBox" style="display:none;text-align:center">
+                <div style="font-weight:700;margin-bottom:6px">Scan QRIS Nasional Aish Catering</div>
+                <div style="width:130px;height:130px;background:#f0e8d5;margin:0 auto;display:flex;align-items:center;justify-content:center;border-radius:8px;border:1px dashed #c5a059">
+                  <i class="fa-solid fa-qrcode" style="font-size:4rem;color:#1d3e2f"></i>
+                </div>
+                <div style="font-size:0.72rem;color:#775a19;margin-top:6px">NMID: ID1020304050607</div>
+              </div>
+
+              <button type="submit" class="btn btn-gold w-100" style="padding:13px;font-size:0.95rem;">
+                <i class="fa-solid fa-shield-check"></i> Konfirmasi Pesanan &amp; Kunci Jadwal
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ==================== MODAL: ORDER SUCCESS & INVOICE ==================== -->
+  <div class="modal-overlay" id="orderSuccessModalOverlay">
+    <div class="modal-card order-success-modal">
+      <button class="modal-close" id="closeOrderSuccessModal" aria-label="Tutup">&times;</button>
+
+      <div class="order-success-icon">
+        <i class="fa-solid fa-check"></i>
+      </div>
+
+      <span class="order-success-inv-pill" id="successOrderId">ORD-2026-0000</span>
+      <h3 style="font-family:'Playfair Display',serif;font-size:1.75rem;color:#1d3e2f;margin-bottom:6px;">Pesanan Anda Berhasil Dicatat!</h3>
+      <p style="font-size:0.86rem;color:#55625a;margin-bottom:20px;">
+        Terima kasih! Reservasi Anda telah tersimpan di sistem dapur Aish Catering. Silakan selesaikan pembayaran DP untuk memverifikasi pesanan.
+      </p>
+
+      <div class="order-success-box">
+        <div class="order-success-row">
+          <span>Tanggal Pelaksanaan:</span>
+          <strong id="successOrderDate">-</strong>
+        </div>
+        <div class="order-success-row">
+          <span>Total Tagihan:</span>
+          <strong id="successOrderTotal">Rp 0</strong>
+        </div>
+        <div class="order-success-row">
+          <span>Uang Muka (DP 50%):</span>
+          <strong id="successOrderDp" style="color:#c5a059;font-size:0.95rem;">Rp 0</strong>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <a id="btnSuccessWhatsApp" href="#" target="_blank" class="btn btn-gold w-100" style="text-decoration:none;">
+          <i class="fa-brands fa-whatsapp"></i> Kirim Bukti Transfer ke WhatsApp Admin
+        </a>
+        <a href="menu-konsumen.html#status-pesanan" class="btn btn-outline-white w-100" style="text-decoration:none;color:#1d3e2f;border-color:rgba(197,160,89,0.5)">
+          <i class="fa-solid fa-receipt"></i> Buka Riwayat di Portal Konsumen
+        </a>
+        <button type="button" class="btn btn-sm" onclick="AishCheckout.closeSuccessModal()" style="background:none;color:#7a8a80;margin-top:2px;">
+          Tutup &amp; Kembali ke Halaman Utama
+        </button>
+      </div>
+    </div>
+  </div>
+
   <!-- SCRIPTS -->
   <script src="js/data.js"></script>
   <script src="js/app.js"></script>
+  <script src="js/checkout.js"></script>
   <script src="js/session-nav.js"></script>
   <script src="js/livereload.js"></script>
 </body>

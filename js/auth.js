@@ -302,8 +302,13 @@ document.addEventListener('DOMContentLoaded', () => {
         if (matched) {
           setSessionUser(matched, rememberMe);
           showToast(`Selamat datang, ${matched.name}! Mengalihkan...`, 'success');
-          // Redirect: admin ke dashboard admin, konsumen ke menu-konsumen
+          // Redirect: jika ada pending checkout, kembalikan ke halaman checkout
           setTimeout(() => {
+            const redirectTarget = localStorage.getItem('aish_redirect_after_login');
+            if (redirectTarget && matched.role !== 'admin') {
+              window.location.href = redirectTarget;
+              return;
+            }
             if (matched.role === 'admin') {
               window.location.href = 'admin-dashboard.html';
             } else {
@@ -393,8 +398,13 @@ document.addEventListener('DOMContentLoaded', () => {
         btnRegisterSubmit.disabled = false;
 
         showToast('Pendaftaran berhasil! Selamat datang di Aish Catering!', 'success');
-        // Redirect ke menu khusus konsumen setelah registrasi berhasil
+        // Redirect: jika ada pending checkout kembali ke checkout, selain itu ke menu-konsumen
         setTimeout(() => {
+          const redirectTarget = localStorage.getItem('aish_redirect_after_login');
+          if (redirectTarget) {
+            window.location.href = redirectTarget;
+            return;
+          }
           window.location.href = 'menu-konsumen.html';
         }, 900);
       }, 700);

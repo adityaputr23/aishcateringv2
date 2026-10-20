@@ -393,6 +393,10 @@ document.addEventListener('DOMContentLoaded', () => {
   // 5. EVENT BAG / CART SYSTEM
   // ===================================================================
   const addToCart = (item) => {
+    if (window.AishCart) {
+      window.AishCart.addItem(item);
+      return;
+    }
     const existing = state.cart.find(i => i.id === item.id);
     if (existing) {
       existing.quantity += item.quantity || 1;

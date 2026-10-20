@@ -4,6 +4,6 @@ Thumbs.db
 .vercel
 
 # Auto-push scripts (lokal saja, tidak perlu di-push)
-auto-push.ps1
+scripts/auto-push.ps1
 START-AUTO-PUSH.bat
 js/livereload.js

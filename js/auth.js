@@ -175,6 +175,18 @@ document.addEventListener('DOMContentLoaded', () => {
         if (roleEl) roleEl.textContent = user.role === 'admin' ? 'Staf & Admin Operasional' : 'Pelanggan / Calon Pengantin';
         if (emailEl) emailEl.textContent = user.email || user.phone;
         if (avatarEl) avatarEl.textContent = user.name ? user.name.charAt(0).toUpperCase() : 'A';
+
+        const redirectBtn = document.getElementById('btnLoggedInRedirect');
+        const redirectText = document.getElementById('btnLoggedInRedirectText');
+        if (redirectBtn && redirectText) {
+          if (user.role === 'admin') {
+            redirectBtn.href = 'admin-dashboard.html';
+            redirectText.textContent = 'Buka Dashboard Admin (CMS)';
+          } else {
+            redirectBtn.href = 'menu-konsumen.html';
+            redirectText.textContent = 'Buka Menu Khusus Konsumen';
+          }
+        }
       }
     } else {
       // Not logged in
@@ -290,9 +302,13 @@ document.addEventListener('DOMContentLoaded', () => {
         if (matched) {
           setSessionUser(matched, rememberMe);
           showToast(`Selamat datang, ${matched.name}! Mengalihkan...`, 'success');
-          // Redirect konsumen ke Menu Khusus Konsumen
+          // Redirect: admin ke dashboard admin, konsumen ke menu-konsumen
           setTimeout(() => {
-            window.location.href = 'menu-konsumen.html';
+            if (matched.role === 'admin') {
+              window.location.href = 'admin-dashboard.html';
+            } else {
+              window.location.href = 'menu-konsumen.html';
+            }
           }, 900);
         } else {
           showToast('Email/nomor WhatsApp atau kata sandi tidak cocok. Silakan coba lagi.', 'error');

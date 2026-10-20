@@ -59,6 +59,10 @@
             </div>
           </div>
           <div style="display: flex; flex-direction: column; gap: 6px;">
+            ${user.role === 'admin' ? `
+            <a href="admin-dashboard.html" style="font-size: 0.82rem; color: #dfbd77; display: flex; align-items: center; gap: 8px; text-decoration: none; padding: 6px 0; font-weight: 700;">
+              <i class="fa-solid fa-crown text-gold"></i> Dashboard Admin (CMS)
+            </a>` : ''}
             <a href="menu-konsumen.html" style="font-size: 0.82rem; color: #ffffff; display: flex; align-items: center; gap: 8px; text-decoration: none; padding: 6px 0;">
               <i class="fa-solid fa-crown text-gold"></i> Menu Khusus Konsumen
             </a>
@@ -126,6 +130,15 @@
 
           <!-- Menu Dropdown Pilihan Konsumen -->
           <div class="dropdown-menu-list">
+            ${user.role === 'admin' ? `
+            <a href="admin-dashboard.html" class="dropdown-item" role="menuitem" style="background: rgba(197, 160, 89, 0.12); border-left: 3px solid #c5a059;">
+              <i class="fa-solid fa-crown" style="color: #c5a059;"></i>
+              <div>
+                <strong style="display:block; font-size:0.86rem; color: #1d3e2f;">Dashboard Admin (CMS)</strong>
+                <span style="font-size:0.72rem; color:#775a19; font-weight:400;">Pusat kendali pesanan, menu & konten web</span>
+              </div>
+            </a>
+            ` : ''}
             <a href="menu-konsumen.html" class="dropdown-item ${isConsumerPage ? 'active-page' : ''}" role="menuitem">
               <i class="fa-solid fa-crown" style="color: #c5a059;"></i>
               <div>

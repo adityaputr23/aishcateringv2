@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard & Control Center - Aish Catering Singkawang</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👑</text></svg>">
+  
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Admin Stylesheet -->
+  <link rel="stylesheet" href="css/admin-dashboard.css">
+</head>
+<body class="admin-body">
+
+  <div class="admin-layout">
+    <!-- TOP HEADER -->
+    <header class="admin-header">
+      <a href="admin-dashboard.html" class="admin-header-brand">
+        <div class="admin-logo-icon">
+          <i class="fa-solid fa-crown"></i>
+        </div>
+        <div class="admin-brand-text">
+          <span class="admin-brand-name">Aish Catering</span>
+          <span class="admin-brand-sub">Admin Control Center</span>
+        </div>
+      </a>
+
+      <div class="admin-header-controls">
+        <button class="admin-sidebar-toggle" id="sidebarToggleBtn" title="Toggle Sidebar" aria-label="Toggle Menu Sidebar">
+          <i class="fa-solid fa-bars-staggered"></i>
+        </button>
+        <span class="admin-page-title" id="adminPageTitle">Ringkasan Eksekutif</span>
+      </div>
+
+      <div class="admin-header-right">
+        <a href="index.html" class="btn-admin btn-admin-outline btn-admin-sm" title="Lihat Website Publik" target="_blank">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          <span>Lihat Web</span>
+        </a>
+
+        <div class="admin-user-chip" id="adminUserChip">
+          <div class="admin-user-chip-avatar" id="adminInitials">AD</div>
+          <span class="admin-user-chip-name" id="adminDisplayName">Hendra Aish (Admin)</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- SIDEBAR NAVIGATION -->
+    <aside class="admin-sidebar">
+      <div class="sidebar-section-label">Menu Utama</div>
+      <a class="sidebar-nav-item active" data-section="dashboard">
+        <i class="fa-solid fa-chart-pie"></i>
+        <span class="nav-label">Ringkasan Eksekutif</span>
+      </a>
+      <a class="sidebar-nav-item" data-section="orders">
+        <i class="fa-solid fa-receipt"></i>
+        <span class="nav-label">Kelola Pesanan</span>
+        <span class="sidebar-badge" id="sidebarPendingBadge">Baru</span>
+      </a>
+      <a class="sidebar-nav-item" data-section="calendar">
+        <i class="fa-solid fa-calendar-days"></i>
+        <span class="nav-label">Jadwal Reservasi</span>
+      </a>
+
+      <div class="sidebar-section-label">Katalog & Pelanggan</div>
+      <a class="sidebar-nav-item" data-section="menus">
+        <i class="fa-solid fa-utensils"></i>
+        <span class="nav-label">Menu & Paket Catering</span>
+      </a>
+      <a class="sidebar-nav-item" data-section="customers">
+        <i class="fa-solid fa-users"></i>
+        <span class="nav-label">Data Konsumen</span>
+        <span class="sidebar-badge success" id="customerCount">0</span>
+      </a>
+
+      <div class="sidebar-section-label">Pengaturan Website</div>
+      <a class="sidebar-nav-item" data-section="settings">
+        <i class="fa-solid fa-sliders"></i>
+        <span class="nav-label">Konten & Operasional</span>
+      </a>
+
+      <div class="sidebar-divider"></div>
+
+      <button class="sidebar-logout-btn" id="adminLogoutBtn">
+        <i class="fa-solid fa-right-from-bracket"></i>
+        <span>Keluar dari Admin</span>
+      </button>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="admin-main">
+      <!-- 1. DASHBOARD OVERVIEW -->
+      <section class="admin-section active" id="section-dashboard">
+        <div class="section-header">
+          <div class="section-title-group">
+            <div class="section-eyebrow">Pusat Kendali Bisnis</div>
+            <h1 class="section-title">Ringkasan Operasional</h1>
+            <p class="section-subtitle">Pantau performa reservasi, pendapatan katering, dan pesanan aktif di Singkawang.</p>
+          </div>
+          <div>
+            <button class="btn-admin btn-admin-primary" onclick="goSection('orders')">
+              <i class="fa-solid fa-plus"></i> Tambah Pesanan
+            </button>
+          </div>
+        </div>
+
+        <!-- STATS CARDS -->
+        <div class="stats-grid">
+          <div class="stat-card gold">
+            <div class="stat-card-header">
+              <span class="stat-label">Total Omset Valid</span>
+              <div class="stat-icon gold"><i class="fa-solid fa-wallet"></i></div>
+            </div>
+            <div class="stat-value" id="statRevenue">Rp 0</div>
+            <div class="stat-change up"><i class="fa-solid fa-arrow-trend-up"></i> +18.4% dari bulan lalu</div>
+          </div>
+
+          <div class="stat-card blue">
+            <div class="stat-card-header">
+              <span class="stat-label">Total Reservasi</span>
+              <div class="stat-icon blue"><i class="fa-solid fa-file-invoice-dollar"></i></div>
+            </div>
+            <div class="stat-value" id="statOrders">0</div>
+            <div class="stat-change up" id="statPending"><i class="fa-solid fa-clock"></i> 0 perlu tindakan</div>
+          </div>
+
+          <div class="stat-card green">
+            <div class="stat-card-header">
+              <span class="stat-label">Konsumen Terdaftar</span>
+              <div class="stat-icon green"><i class="fa-solid fa-user-check"></i></div>
+            </div>
+            <div class="stat-value" id="statCustomers">0</div>
+            <div class="stat-change up"><i class="fa-solid fa-arrow-up"></i> Akun aktif VIP & reguler</div>
+          </div>
+
+          <div class="stat-card orange">
+            <div class="stat-card-header">
+              <span class="stat-label">Paket Menu Aktif</span>
+              <div class="stat-icon orange"><i class="fa-solid fa-bowl-food"></i></div>
+            </div>
+            <div class="stat-value" id="statMenus">0</div>
+            <div class="stat-change"><i class="fa-solid fa-check"></i> Siap dipesan di web</div>
+          </div>
+        </div>
+
+        <!-- QUICK ACCESS CARDS -->
+        <div class="quick-links-grid">
+          <div class="quick-link-card" onclick="goSection('orders')">
+            <div class="quick-link-icon" style="background:rgba(197,160,89,0.15);color:var(--admin-gold)"><i class="fa-solid fa-cash-register"></i></div>
+            <div>
+              <h4>Pesanan Masuk</h4>
+              <p>Verifikasi DP dan jadwal prasmanan</p>
+            </div>
+          </div>
+          <div class="quick-link-card" onclick="goSection('menus')">
+            <div class="quick-link-icon" style="background:rgba(77,182,228,0.15);color:#4db6e4"><i class="fa-solid fa-mortar-pestle"></i></div>
+            <div>
+              <h4>Kelola Menu & Harga</h4>
+              <p>Update paket pernikahan & tumpeng</p>
+            </div>
+          </div>
+          <div class="quick-link-card" onclick="goSection('settings')">
+            <div class="quick-link-icon" style="background:rgba(37,211,102,0.15);color:#25d366"><i class="fa-solid fa-building-columns"></i></div>
+            <div>
+              <h4>Pengaturan Web</h4>
+              <p>Nomor WA, alamat & rekening transfer</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- CHARTS & ACTIVITIES -->
+        <div class="admin-chart-row">
+          <div class="admin-chart-card">
+            <h3><i class="fa-solid fa-chart-simple"></i> Estimasi Tren Pendapatan Semester II (2026)</h3>
+            <div class="bar-chart" id="revenueBarChart"></div>
+            <div style="font-size:0.75rem;color:var(--admin-text-dim);text-align:right">Satuan dalam puluhan juta Rupiah (IDR)</div>
+          </div>
+
+          <div class="admin-chart-card">
+            <h3><i class="fa-solid fa-chart-pie"></i> Komposisi Status Pesanan</h3>
+            <div id="orderDonutChart"></div>
+          </div>
+        </div>
+
+        <!-- RECENT ORDERS TABLE -->
+        <div class="admin-table-card">
+          <div class="admin-table-head">
+            <div class="admin-table-title">
+              <i class="fa-solid fa-clock-rotate-left"></i>
+              <span>Reservasi Terbaru Masuk</span>
+            </div>
+            <button class="btn-admin btn-admin-outline btn-admin-sm" onclick="goSection('orders')">
+              Lihat Semua Pesanan <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+          <div style="overflow-x:auto">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>No. Order</th>
+                  <th>Pelanggan</th>
+                  <th>Kapasitas</th>
+                  <th>Tgl Acara</th>
+                  <th>Nilai Order</th>
+                  <th>Status</th>
+                  <th>Aksi</th>
+                </tr>
+              </thead>
+              <tbody id="recentOrdersTbody"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- ACTIVITY FEED -->
+        <div class="admin-chart-card">
+          <h3><i class="fa-solid fa-bell"></i> Log Aktivitas Sistem Terkini</h3>
+          <div class="activity-feed" id="activityFeed"></div>
+        </div>
+      </section>
+
+      <!-- 2. ORDERS MANAGEMENT -->
+      <section class="admin-section" id="section-orders">
+        <div class="section-header">
+          <div class="section-title-group">
+            <div class="section-eyebrow">Manajemen Reservasi & Jamuan</div>
+            <h2 class="section-title">Kelola Semua Pesanan</h2>
+            <p class="section-subtitle">Verifikasi pesanan masuk, konfirmasi pembayaran DP, dan pantau status pengiriman catering.</p>
+          </div>
+          <div style="display:flex;gap:10px;">
+            <button class="btn-admin btn-admin-primary" id="btnAddOrder">
+              <i class="fa-solid fa-plus"></i> Input Pesanan Manual
+            </button>
+          </div>
+        </div>
+
+        <div class="admin-table-card">
+          <div class="admin-table-head">
+            <!-- FILTER TABS -->
+            <div style="display:flex;gap:6px;flex-wrap:wrap">
+              <button class="btn-admin btn-admin-outline btn-admin-sm order-filter-btn active" data-filter="all">Semua</button>
+              <button class="btn-admin btn-admin-outline btn-admin-sm order-filter-btn" data-filter="pending">Menunggu</button>
+              <button class="btn-admin btn-admin-outline btn-admin-sm order-filter-btn" data-filter="confirmed">Dikonfirmasi</button>
+              <button class="btn-admin btn-admin-outline btn-admin-sm order-filter-btn" data-filter="in-progress">Diproses</button>
+              <button class="btn-admin btn-admin-outline btn-admin-sm order-filter-btn" data-filter="completed">Selesai</button>
+              <button class="btn-admin btn-admin-outline btn-admin-sm order-filter-btn" data-filter="cancelled">Batal</button>
+            </div>
+
+            <!-- SEARCH -->
+            <div class="admin-table-actions">
+              <div class="admin-search-box">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="orderSearchInput" placeholder="Cari ID/Nama/Paket...">
+              </div>
+            </div>
+          </div>
+
+          <div style="overflow-x:auto">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>No. Order</th>
+                  <th>Konsumen</th>
+                  <th>Paket Dipesan</th>
+                  <th>Kapasitas</th>
+                  <th>Tgl Acara</th>
+                  <th>Total Tagihan</th>
+                  <th>Status</th>
+                  <th>Tindakan</th>
+                </tr>
+              </thead>
+              <tbody id="ordersTbody"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. CALENDAR RESERVATION -->
+      <section class="admin-section" id="section-calendar">
+        <div class="section-header">
+          <div class="section-title-group">
+            <div class="section-eyebrow">Penjadwalan Dapur & Acara</div>
+            <h2 class="section-title">Kalender Reservasi</h2>
+            <p class="section-subtitle">Hindari jadwal bentrok dan kontrol kapasitas slot katering per hari di Singkawang.</p>
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:2fr 1fr;gap:1.5rem">
+          <div class="calendar-wrap">
+            <div class="calendar-header">
+              <div class="calendar-month-title" id="calMonthTitle">Bulan 2026</div>
+              <div style="display:flex;gap:6px">
+                <button class="calendar-nav-btn" id="calPrevBtn" title="Bulan Sebelumnya"><i class="fa-solid fa-chevron-left"></i></button>
+                <button class="calendar-nav-btn" id="calNextBtn" title="Bulan Berikutnya"><i class="fa-solid fa-chevron-right"></i></button>
+              </div>
+            </div>
+
+            <div class="calendar-grid">
+              <div class="cal-day-header">Min</div>
+              <div class="cal-day-header">Sen</div>
+              <div class="cal-day-header">Sel</div>
+              <div class="cal-day-header">Rab</div>
+              <div class="cal-day-header">Kam</div>
+              <div class="cal-day-header">Jum</div>
+              <div class="cal-day-header">Sab</div>
+            </div>
+            <div class="calendar-grid" id="calendarGrid"></div>
+          </div>
+
+          <div>
+            <div class="admin-chart-card">
+              <h3><i class="fa-solid fa-calendar-check"></i> Acara Mendatang</h3>
+              <div id="upcomingEventsList" style="margin-top:1rem"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. MENU MANAGEMENT -->
+      <section class="admin-section" id="section-menus">
+        <div class="section-header">
+          <div class="section-title-group">
+            <div class="section-eyebrow">Katalog Hidangan & Paket</div>
+            <h2 class="section-title">Kelola Menu & Paket Katering</h2>
+            <p class="section-subtitle">Tambah hidangan baru, atur harga, dan atur ketersediaan menu di website publik.</p>
+          </div>
+          <div>
+            <button class="btn-admin btn-admin-primary" id="btnAddMenu">
+              <i class="fa-solid fa-plus"></i> Tambah Menu Baru
+            </button>
+          </div>
+        </div>
+
+        <div class="admin-menu-grid" id="menusGrid"></div>
+      </section>
+
+      <!-- 5. CUSTOMERS -->
+      <section class="admin-section" id="section-customers">
+        <div class="section-header">
+          <div class="section-title-group">
+            <div class="section-eyebrow">Database Klien & Anggota</div>
+            <h2 class="section-title">Data Konsumen Terdaftar</h2>
+            <p class="section-subtitle">Daftar pengguna yang memiliki akses ke Portal Eksklusif Konsumen Aish Catering.</p>
+          </div>
+        </div>
+
+        <div class="admin-table-card">
+          <div class="admin-table-head">
+            <div class="admin-table-title">
+              <i class="fa-solid fa-address-book"></i>
+              <span>Daftar Pelanggan</span>
+            </div>
+          </div>
+          <div style="overflow-x:auto">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Nama Lengkap</th>
+                  <th>Email</th>
+                  <th>WhatsApp / HP</th>
+                  <th>Tgl Bergabung</th>
+                  <th>Status Akun</th>
+                  <th>Aksi</th>
+                </tr>
+              </thead>
+              <tbody id="usersTbody"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- 6. SETTINGS CMS -->
+      <section class="admin-section" id="section-settings">
+        <div class="section-header">
+          <div class="section-title-group">
+            <div class="section-eyebrow">Pengaturan Web & Brand</div>
+            <h2 class="section-title">Kendali Konten & Operasional</h2>
+            <p class="section-subtitle">Ubah teks beranda, nomor kontak WhatsApp, nomor rekening pembayaran, dan kebijakan pemesanan.</p>
+          </div>
+        </div>
+
+        <form id="settingsForm">
+          <div class="admin-settings-grid">
+            <!-- Informasi Bisnis & Kontak -->
+            <div class="settings-card">
+              <div class="settings-card-title">
+                <i class="fa-solid fa-store"></i>
+                <span>Identitas & Kontak Bisnis</span>
+              </div>
+              <div class="admin-form-group">
+                <label class="admin-form-label" for="set_siteName">Nama Usaha / Website</label>
+                <input type="text" id="set_siteName" class="admin-form-input">
+              </div>
+              <div class="admin-form-group">
+                <label class="admin-form-label" for="set_tagline">Slogan / Tagline</label>
+                <input type="text" id="set_tagline" class="admin-form-input">
+              </div>
+              <div class="admin-form-group">
+                <label class="admin-form-label" for="set_whatsapp">Nomor WhatsApp Resmi (Awali 62)</label>
+                <input type="text" id="set_whatsapp" class="admin-form-input">
+              </div>
+              <div class="admin-form-group">
+                <label class="admin-form-label" for="set_phone">Nomor Telepon Tampilan</label>
+                <input type="text" id="set_phone" class="admin-form-input">
+              </div>
+              <div class="admin-form-group">
+                <label class="admin-form-label" for="set_email">Email Kontak</label>
+                <input type="email" id="set_email" class="admin-form-input">
+              </div>
+              <div class="admin-form-group">
+                <label class="admin-form-label" for="set_address">Alamat Dapur & Kantor</label>
+                <textarea id="set_address" class="admin-form-input" rows="3"></textarea>
+              </div>
+            </div>
+
+            <!-- Teks Beranda & Sosial Media -->
+            <div class="settings-card">
+              <div class="settings-card-title">
+                <i class="fa-solid fa-paintbrush"></i>
+                <span>Teks Banner Utama (Hero)</span>
+              </div>
+              <div class="admin-form-group">
+                <label class="admin-form-label" for="set_heroTitle">Judul Utama Beranda</label>
+                <input type="text" id="set_heroTitle" class="admin-form-input">
+              </div>
+              <div class="admin-form-group">
+                <label class="admin-form-label" for="set_heroSubtitle">Subjudul Beranda</label>
+                <textarea id="set_heroSubtitle" class="admin-form-input" rows="3"></textarea>
+              </div>
+              <div class="admin-form-group">
+                <label class="admin-form-label" for="set_instagram">Instagram Akun</label>
+                <input type="text" id="set_instagram" class="admin-form-input">
+              </div>
+              <div class="admin-form-group">
+                <label class="admin-form-label" for="set_facebook">Facebook Akun</label>
+                <input type="text" id="set_facebook" class="admin-form-input">
+              </div>
+              <div class="admin-form-group">
+                <label class="admin-form-label" for="set_operasionalJam">Jam Operasional</label>
+                <input type="text" id="set_operasionalJam" class="admin-form-input">
+              </div>
+            </div>
+
+            <!-- Kebijakan Order & Kapasitas -->
+            <div class="settings-card">
+              <div class="settings-card-title">
+                <i class="fa-solid fa-clock-rotate-left"></i>
+                <span>Kebijakan Reservasi Dapur</span>
+              </div>
+              <div class="admin-form-group">
+                <label class="admin-form-label" for="set_minOrderDays">Minimal Hari Pemesanan (H-)</label>
+                <input type="number" id="set_minOrderDays" class="admin-form-input">
+              </div>
+              <div class="admin-form-group">
+                <label class="admin-form-label" for="set_maxPaxPerDay">Kapasitas Maksimal Porsi / Hari</label>
+                <input type="number" id="set_maxPaxPerDay" class="admin-form-input">
+              </div>
+              <div class="admin-form-group">
+                <label class="admin-form-label" for="set_depositPercent">Persentase Uang Muka / DP (%)</label>
+                <input type="number" id="set_depositPercent" class="admin-form-input">
+              </div>
+            </div>
+
+            <!-- Rekening Pembayaran -->
+            <div class="settings-card">
+              <div class="settings-card-title">
+                <i class="fa-solid fa-credit-card"></i>
+                <span>Rekening Bank Pembayaran</span>
+              </div>
+              <div class="admin-form-group">
+                <label class="admin-form-label" for="set_bankName">Nama Bank</label>
+                <input type="text" id="set_bankName" class="admin-form-input">
+              </div>
+              <div class="admin-form-group">
+                <label class="admin-form-label" for="set_bankAccount">Nomor Rekening</label>
+                <input type="text" id="set_bankAccount" class="admin-form-input">
+              </div>
+              <div class="admin-form-group">
+                <label class="admin-form-label" for="set_bankHolder">Atas Nama Pemilik Rekening</label>
+                <input type="text" id="set_bankHolder" class="admin-form-input">
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-top:1.5rem;display:flex;justify-content:flex-end;">
+            <button type="submit" class="btn-admin btn-admin-primary" style="padding:10px 24px;font-size:0.9rem;">
+              <i class="fa-solid fa-floppy-disk"></i> Simpan Semua Perubahan
+            </button>
+          </div>
+        </form>
+      </section>
+    </main>
+  </div>
+
+  <!-- MODAL: ORDER DETAIL -->
+  <div class="admin-modal-overlay" id="orderModalOverlay">
+    <div class="admin-modal" id="orderModalContent"></div>
+  </div>
+
+  <!-- MODAL: ADD MANUAL ORDER -->
+  <div class="admin-modal-overlay" id="addOrderModalOverlay">
+    <div class="admin-modal">
+      <div class="admin-modal-header">
+        <h3 class="admin-modal-title">Input Pesanan Baru</h3>
+        <button class="admin-modal-close" id="closeAddOrderModal">&times;</button>
+      </div>
+      <form id="addOrderForm">
+        <div class="admin-form-group">
+          <label class="admin-form-label" for="newCustName">Nama Pelanggan</label>
+          <input type="text" id="newCustName" class="admin-form-input" required placeholder="Contoh: dr. Fitriani">
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+          <div class="admin-form-group">
+            <label class="admin-form-label" for="newCustEmail">Email</label>
+            <input type="email" id="newCustEmail" class="admin-form-input" required placeholder="email@domain.com">
+          </div>
+          <div class="admin-form-group">
+            <label class="admin-form-label" for="newCustPhone">WhatsApp / HP</label>
+            <input type="tel" id="newCustPhone" class="admin-form-input" required placeholder="081234567890">
+          </div>
+        </div>
+        <div class="admin-form-group">
+          <label class="admin-form-label" for="newPackage">Pilihan Paket Katering</label>
+          <select id="newPackage" class="admin-form-input" required>
+            <option value="Paket Pernikahan Grand Prasmanan">Paket Pernikahan Grand Prasmanan</option>
+            <option value="Tumpeng Syukuran Pusaka Singkawang">Tumpeng Syukuran Pusaka Singkawang</option>
+            <option value="Catering Kantor – Box Bento Premium">Catering Kantor – Box Bento Premium</option>
+            <option value="Coffee Break & Snack Box Otentik">Coffee Break & Snack Box Otentik</option>
+            <option value="Custom Prasmanan Khusus">Custom Prasmanan Khusus</option>
+          </select>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+          <div class="admin-form-group">
+            <label class="admin-form-label" for="newPax">Jumlah Pax / Porsi</label>
+            <input type="number" id="newPax" class="admin-form-input" required min="20" value="100">
+          </div>
+          <div class="admin-form-group">
+            <label class="admin-form-label" for="newEventDate">Tanggal Acara</label>
+            <input type="date" id="newEventDate" class="admin-form-input" required>
+          </div>
+        </div>
+        <div class="admin-form-group">
+          <label class="admin-form-label" for="newAmount">Total Tagihan (Rp)</label>
+          <input type="number" id="newAmount" class="admin-form-input" required placeholder="8500000">
+        </div>
+        <div class="admin-form-group">
+          <label class="admin-form-label" for="newNotes">Catatan Khusus / Permintaan Meja</label>
+          <textarea id="newNotes" class="admin-form-input" rows="2" placeholder="Dekorasi warna, alergi, live stall dll"></textarea>
+        </div>
+        <div style="display:flex;justify-content:flex-end;gap:10px;margin-top:1rem">
+          <button type="button" class="btn-admin btn-admin-outline" onclick="document.getElementById('closeAddOrderModal').click()">Batal</button>
+          <button type="submit" class="btn-admin btn-admin-primary">Simpan Pesanan</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL: ADD MENU -->
+  <div class="admin-modal-overlay" id="addMenuModalOverlay">
+    <div class="admin-modal">
+      <div class="admin-modal-header">
+        <h3 class="admin-modal-title">Tambah Menu / Paket Baru</h3>
+        <button class="admin-modal-close" id="closeAddMenuModal">&times;</button>
+      </div>
+      <form id="addMenuForm">
+        <div class="admin-form-group">
+          <label class="admin-form-label" for="menuCategory">Kategori Menu</label>
+          <select id="menuCategory" class="admin-form-input" required>
+            <option value="Paket Pernikahan">Paket Pernikahan</option>
+            <option value="Syukuran & Tumpeng">Syukuran & Tumpeng</option>
+            <option value="Catering Kantor">Catering Kantor</option>
+            <option value="Coffee Break">Coffee Break</option>
+            <option value="Add-on & Live Stall">Add-on & Live Stall</option>
+          </select>
+        </div>
+        <div class="admin-form-group">
+          <label class="admin-form-label" for="menuName">Nama Menu / Paket</label>
+          <input type="text" id="menuName" class="admin-form-input" required placeholder="Contoh: Prasmanan Sultan Singkawang">
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+          <div class="admin-form-group">
+            <label class="admin-form-label" for="menuPrice">Harga (Rp)</label>
+            <input type="number" id="menuPrice" class="admin-form-input" required placeholder="75000">
+          </div>
+          <div class="admin-form-group">
+            <label class="admin-form-label" for="menuUnit">Satuan</label>
+            <input type="text" id="menuUnit" class="admin-form-input" required placeholder="pax / box / tumpeng" value="pax">
+          </div>
+        </div>
+        <div class="admin-form-group">
+          <label class="admin-form-label" for="menuMinPax">Minimal Porsi (Pax)</label>
+          <input type="number" id="menuMinPax" class="admin-form-input" value="50" min="1">
+        </div>
+        <div class="admin-form-group">
+          <label class="admin-form-label" for="menuImage">URL Foto Menu</label>
+          <input type="url" id="menuImage" class="admin-form-input" placeholder="https://images.unsplash.com/...">
+        </div>
+        <div class="admin-form-group">
+          <label class="admin-form-label" for="menuDesc">Deskripsi Singkat</label>
+          <textarea id="menuDesc" class="admin-form-input" rows="2" placeholder="Komposisi hidangan, bumbu istimewa, perlengkapan"></textarea>
+        </div>
+        <div style="display:flex;justify-content:flex-end;gap:10px;margin-top:1rem">
+          <button type="button" class="btn-admin btn-admin-outline" onclick="document.getElementById('closeAddMenuModal').click()">Batal</button>
+          <button type="submit" class="btn-admin btn-admin-primary">Terbitkan Menu</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATIONS -->
+  <div class="admin-toast-container"></div>
+
+  <!-- Scripts -->
+  <script src="js/admin-dashboard.js"></script>
+</body>
+</html>

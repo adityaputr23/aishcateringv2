@@ -142,6 +142,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const icon = btn.querySelector('i');
         if (icon) {
+          btn.classList.toggle('toggled', isPassword);
           if (isPassword) {
             icon.classList.remove('fa-eye');
             icon.classList.add('fa-eye-slash');

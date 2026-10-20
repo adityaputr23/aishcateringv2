@@ -287,13 +287,12 @@ document.addEventListener('DOMContentLoaded', () => {
         btnLoginSubmit.disabled = false;
 
         if (matched) {
-          // If logged into admin tab but role is customer or vice versa, warn gently or accept with actual role
           setSessionUser(matched, rememberMe);
-          showToast(`Selamat datang kembali, ${matched.name}!`, 'success');
-          
+          showToast(`Selamat datang, ${matched.name}! Mengalihkan...`, 'success');
+          // Redirect ke halaman utama setelah login berhasil
           setTimeout(() => {
-            renderAuthState();
-          }, 600);
+            window.location.href = 'index.html';
+          }, 900);
         } else {
           showToast('Email/nomor WhatsApp atau kata sandi tidak cocok. Silakan coba lagi.', 'error');
         }
@@ -376,11 +375,11 @@ document.addEventListener('DOMContentLoaded', () => {
         btnRegisterSubmit.classList.remove('loading');
         btnRegisterSubmit.disabled = false;
 
-        showToast('Pendaftaran akun berhasil! Anda otomatis masuk.', 'success');
-        
+        showToast('Pendaftaran berhasil! Selamat datang di Aish Catering!', 'success');
+        // Redirect ke halaman utama setelah registrasi berhasil
         setTimeout(() => {
-          renderAuthState();
-        }, 700);
+          window.location.href = 'index.html';
+        }, 900);
       }, 700);
     });
   }
@@ -401,8 +400,8 @@ document.addEventListener('DOMContentLoaded', () => {
           role: 'customer'
         };
         setSessionUser(mockGoogleUser, true);
-        showToast('Berhasil masuk dengan akun Google!', 'success');
-        renderAuthState();
+        showToast('Berhasil masuk dengan Google! Mengalihkan...', 'success');
+        setTimeout(() => { window.location.href = 'index.html'; }, 900);
       }, 1000);
     });
   }

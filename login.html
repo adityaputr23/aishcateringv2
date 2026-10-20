@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Masuk Akun - Aish Catering Singkawang | Cita Rasa Istimewa Tradisi Singkawang</title>
+  <meta name="description" content="Masuk ke portal resmi Aish Catering Singkawang. Akses rincian pesanan katering, kustomisasi menu prasmanan, dan konsultasi acara Anda.">
+  <meta name="keywords" content="login aish catering, masuk aish catering, katering singkawang, portal pelanggan aish catering">
+
+  <!-- Google Fonts: Playfair Display & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Core Stylesheet & Auth Stylesheet -->
+  <link rel="stylesheet" href="css/style.css?v=2">
+  <link rel="stylesheet" href="css/auth.css?v=1">
+</head>
+<body class="auth-body">
+
+  <!-- Minimalist Luxury Header -->
+  <header class="auth-header">
+    <div class="auth-header-container">
+      
+      <!-- Brand Logo -->
+      <a href="index.html" class="brand-logo" id="authBrandLogo" aria-label="Aish Catering Beranda">
+        <div class="logo-circle-utensils">
+          <i class="fa-solid fa-utensils"></i>
+        </div>
+        <div class="logo-text">
+          <span class="logo-brand-title">Aish Catering</span>
+          <span class="logo-brand-subtitle">CATERING &amp; EVENT</span>
+        </div>
+      </a>
+
+      <!-- Header Quick Actions -->
+      <div style="display: flex; align-items: center; gap: 0.75rem;">
+        <a href="index.html" class="auth-back-link" id="backToHomeBtn">
+          <i class="fa-solid fa-arrow-left"></i>
+          <span>Beranda</span>
+        </a>
+
+        <a href="https://wa.me/6281345678910?text=Halo%20Admin%20Aish%20Catering,%20saya%20butuh%20bantuan%20mengenai%20akun%20atau%20pemesanan" target="_blank" class="auth-help-link" id="authHelpBtn">
+          <i class="fa-brands fa-whatsapp"></i>
+          <span>Bantuan Admin</span>
+        </a>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Main Center Wrapper -->
+  <main class="auth-main-wrapper">
+    <div class="auth-container">
+
+      <!-- LEFT COLUMN: Visual Heritage Showcase -->
+      <div class="auth-showcase">
+        <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1200&q=80" 
+             alt="Jamuan Katering Mewah Singkawang" 
+             class="auth-showcase-bg-img">
+
+        <div class="auth-showcase-content">
+          <div class="auth-badge-pill">
+            <i class="fa-solid fa-crown"></i>
+            <span>Portal Eksklusif Aish Catering</span>
+          </div>
+
+          <h1 class="auth-showcase-title">
+            Momen Istimewa Dimulai dari <em>Rasa &amp; Pelayanan Terbaik</em>.
+          </h1>
+
+          <p class="auth-showcase-desc">
+            Nikmati kemudahan mengelola jamuan pernikahan, syukuran keluarga, dan rapat dinas Anda di kota Singkawang dengan sentuhan keramahan kuliner tradisi.
+          </p>
+
+          <!-- List of Benefits -->
+          <ul class="auth-benefit-list">
+            <li class="auth-benefit-item">
+              <div class="auth-benefit-icon">
+                <i class="fa-regular fa-calendar-check"></i>
+              </div>
+              <div class="auth-benefit-text">
+                <strong>Pantau Reservasi Tanggal Acara</strong>
+                <span>Cek ketersediaan kuota tanggal resepsi secara real-time.</span>
+              </div>
+            </li>
+
+            <li class="auth-benefit-item">
+              <div class="auth-benefit-icon">
+                <i class="fa-solid fa-bowl-rice"></i>
+              </div>
+              <div class="auth-benefit-text">
+                <strong>Simpan Racikan Menu Prasmanan</strong>
+                <span>Rancang kombinasi menu favorit keluarga beserta simulasi biayanya.</span>
+              </div>
+            </li>
+
+            <li class="auth-benefit-item">
+              <div class="auth-benefit-icon">
+                <i class="fa-solid fa-file-invoice-dollar"></i>
+              </div>
+              <div class="auth-benefit-text">
+                <strong>Tanda Terima &amp; Invoice Resmi</strong>
+                <span>Akses arsip pesanan dan rincian transaksi Anda kapan saja.</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Floating Customer Review Card -->
+        <div class="auth-quote-card">
+          <div class="auth-quote-header">
+            <div class="auth-stars">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <span style="font-size: 0.72rem; color: rgba(255,255,255,0.7);"><i class="fa-solid fa-circle-check" style="color: #4cd964;"></i> Verified Order</span>
+          </div>
+          <p>"Makanan prasmanan enak sekali, porsi melimpah, dan pelayanan staf Aish Catering sangat cekatan di acara pernikahan kami."</p>
+          <div class="auth-quote-author">— Ibu Cindy Pratiwi &amp; Keluarga (Singkawang)</div>
+        </div>
+
+      </div>
+
+      <!-- RIGHT COLUMN: Form Card Panel -->
+      <div class="auth-card-panel">
+
+        <!-- PANEL JIKA SUDAH LOGIN -->
+        <div class="auth-logged-in-panel" id="loggedInPanel">
+          <div class="auth-avatar-circle" id="loggedUserAvatar">A</div>
+          <h2 class="auth-logged-title">Selamat Datang Kembali,</h2>
+          <h3 id="loggedUserName" style="font-size: 1.25rem; font-weight: 700; color: #1d3e2f; margin-bottom: 0.5rem;">Nama Pengguna</h3>
+          <span class="auth-logged-role" id="loggedUserRole">Pelanggan</span>
+          <p id="loggedUserEmail" style="font-size: 0.85rem; color: #636b65; margin-bottom: 1.5rem;">user@email.com</p>
+
+          <div class="auth-actions-stack">
+            <a href="menu.html" class="btn-auth-submit" style="text-decoration: none;">
+              <i class="fa-solid fa-bowl-rice"></i>
+              <span>Pilih Menu &amp; Pesan Katering</span>
+            </a>
+            <a href="index.html" class="btn-auth-social" style="text-decoration: none;">
+              <i class="fa-solid fa-house"></i>
+              <span>Kembali ke Halaman Utama</span>
+            </a>
+            <button class="btn-auth-logout" id="btnLogout">
+              <i class="fa-solid fa-arrow-right-from-bracket"></i>
+              <span>Keluar dari Akun (Logout)</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- SECTION 1: FORM LOGIN -->
+        <div id="loginSection">
+          
+          <!-- Role Tab Switcher -->
+          <div class="auth-role-tabs" role="tablist">
+            <button type="button" class="auth-role-btn active" id="tabCustomer" role="tab" aria-selected="true">
+              <i class="fa-solid fa-user"></i>
+              <span>Pelanggan</span>
+            </button>
+            <button type="button" class="auth-role-btn" id="tabAdmin" role="tab" aria-selected="false">
+              <i class="fa-solid fa-user-shield"></i>
+              <span>Staf / Admin</span>
+            </button>
+          </div>
+
+          <!-- Form Header -->
+          <div class="auth-form-header">
+            <h2 class="auth-form-title">Masuk ke Akun</h2>
+            <p class="auth-form-subtitle" id="roleHelpText">
+              Masuk sebagai pelanggan untuk reservasi katering dan pantau status pesanan acara Anda.
+            </p>
+          </div>
+
+          <!-- Quick Demo Bar for Testing -->
+          <div class="auth-demo-bar">
+            <span><i class="fa-solid fa-wand-magic-sparkles"></i> <strong>Coba Demo:</strong></span>
+            <div style="display: flex; gap: 0.4rem;">
+              <button type="button" class="auth-demo-btn" id="demoPelangganBtn" title="Gunakan akun demo pelanggan">Pelanggan</button>
+              <button type="button" class="auth-demo-btn" id="demoAdminBtn" title="Gunakan akun demo admin">Admin</button>
+            </div>
+          </div>
+
+          <!-- The Login Form -->
+          <form class="auth-form" id="loginForm" novalidate>
+            
+            <!-- Email / Phone Field -->
+            <div class="form-group">
+              <label for="loginIdentifier" class="form-label">
+                <span>Email atau Nomor WhatsApp <span class="required-mark">*</span></span>
+              </label>
+              <div class="input-icon-wrapper">
+                <i class="fa-regular fa-envelope input-left-icon"></i>
+                <input type="text" 
+                       id="loginIdentifier" 
+                       name="identifier" 
+                       class="auth-input" 
+                       placeholder="contoh: nama@email.com atau 0812..." 
+                       autocomplete="username"
+                       required>
+              </div>
+            </div>
+
+            <!-- Password Field -->
+            <div class="form-group">
+              <label for="loginPassword" class="form-label">
+                <span>Kata Sandi <span class="required-mark">*</span></span>
+              </label>
+              <div class="input-icon-wrapper">
+                <i class="fa-solid fa-lock input-left-icon"></i>
+                <input type="password" 
+                       id="loginPassword" 
+                       name="password" 
+                       class="auth-input has-toggle" 
+                       placeholder="Masukkan kata sandi Anda" 
+                       autocomplete="current-password"
+                       required>
+                <button type="button" class="password-toggle-btn" data-target="loginPassword" aria-label="Tampilkan Kata Sandi">
+                  <i class="fa-regular fa-eye"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Options Row: Remember Me & Forgot Password -->
+            <div class="auth-options-row">
+              <label class="auth-checkbox-label" for="rememberMe">
+                <input type="checkbox" id="rememberMe" name="remember" checked>
+                <span>Ingat saya</span>
+              </label>
+              <a href="#" class="auth-forgot-link" id="forgotPasswordBtn">Lupa kata sandi?</a>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="btn-auth-submit" id="btnLoginSubmit">
+              <i class="fa-solid fa-spinner spinner-icon"></i>
+              <span class="btn-text-content">
+                <span>Masuk Sekarang</span>
+                <i class="fa-solid fa-arrow-right" style="margin-left: 6px;"></i>
+              </span>
+            </button>
+
+          </form>
+
+          <!-- Divider -->
+          <div class="auth-divider">
+            <span>Atau Masuk Lebih Cepat</span>
+          </div>
+
+          <!-- Instant / Social Login Grid -->
+          <div class="auth-social-grid">
+            <button type="button" class="btn-auth-social btn-google" id="btnGoogleLogin">
+              <i class="fa-brands fa-google"></i>
+              <span>Google</span>
+            </button>
+            <button type="button" class="btn-auth-social btn-wa" id="btnWaLogin">
+              <i class="fa-brands fa-whatsapp"></i>
+              <span>WhatsApp OTP</span>
+            </button>
+          </div>
+
+          <!-- Switch to Register -->
+          <div class="auth-switch-footer">
+            Belum memiliki akun Aish Catering? 
+            <a href="#" class="auth-switch-link" id="toRegisterBtn">Daftar Akun Baru</a>
+          </div>
+
+        </div>
+
+        <!-- SECTION 2: FORM REGISTRASI -->
+        <div id="registerSection" style="display: none;">
+          
+          <div class="auth-form-header">
+            <span class="auth-badge-pill" style="margin-bottom: 0.75rem; padding: 0.35rem 0.8rem; font-size: 0.7rem;">
+              <i class="fa-solid fa-sparkles"></i> Pendaftaran Akun Pelanggan
+            </span>
+            <h2 class="auth-form-title">Daftar Akun Baru</h2>
+            <p class="auth-form-subtitle">
+              Nikmati kemudahan reservasi acara katering Singkawang dengan akun resmi Anda.
+            </p>
+          </div>
+
+          <form class="auth-form" id="registerForm" novalidate>
+            
+            <!-- Full Name -->
+            <div class="form-group">
+              <label for="regName" class="form-label">
+                <span>Nama Lengkap <span class="required-mark">*</span></span>
+              </label>
+              <div class="input-icon-wrapper">
+                <i class="fa-regular fa-user input-left-icon"></i>
+                <input type="text" 
+                       id="regName" 
+                       class="auth-input" 
+                       placeholder="contoh: Ibu Cindy Pratiwi" 
+                       required>
+              </div>
+            </div>
+
+            <!-- WhatsApp Number -->
+            <div class="form-group">
+              <label for="regPhone" class="form-label">
+                <span>Nomor WhatsApp Aktif <span class="required-mark">*</span></span>
+              </label>
+              <div class="input-icon-wrapper">
+                <i class="fa-brands fa-whatsapp input-left-icon"></i>
+                <input type="tel" 
+                       id="regPhone" 
+                       class="auth-input" 
+                       placeholder="contoh: 081234567890" 
+                       required>
+              </div>
+            </div>
+
+            <!-- Email -->
+            <div class="form-group">
+              <label for="regEmail" class="form-label">
+                <span>Alamat Email <span class="required-mark">*</span></span>
+              </label>
+              <div class="input-icon-wrapper">
+                <i class="fa-regular fa-envelope input-left-icon"></i>
+                <input type="email" 
+                       id="regEmail" 
+                       class="auth-input" 
+                       placeholder="contoh: cindy@email.com" 
+                       required>
+              </div>
+            </div>
+
+            <!-- New Password -->
+            <div class="form-group">
+              <label for="regPassword" class="form-label">
+                <span>Buat Kata Sandi (Min. 6 Karakter) <span class="required-mark">*</span></span>
+              </label>
+              <div class="input-icon-wrapper">
+                <i class="fa-solid fa-lock input-left-icon"></i>
+                <input type="password" 
+                       id="regPassword" 
+                       class="auth-input has-toggle" 
+                       placeholder="Minimal 6 karakter kombinasi" 
+                       required>
+                <button type="button" class="password-toggle-btn" data-target="regPassword" aria-label="Tampilkan Kata Sandi">
+                  <i class="fa-regular fa-eye"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Confirm Password -->
+            <div class="form-group">
+              <label for="regPasswordConfirm" class="form-label">
+                <span>Ulangi Kata Sandi <span class="required-mark">*</span></span>
+              </label>
+              <div class="input-icon-wrapper">
+                <i class="fa-solid fa-shield-halved input-left-icon"></i>
+                <input type="password" 
+                       id="regPasswordConfirm" 
+                       class="auth-input has-toggle" 
+                       placeholder="Ulangi kata sandi di atas" 
+                       required>
+                <button type="button" class="password-toggle-btn" data-target="regPasswordConfirm" aria-label="Tampilkan Kata Sandi">
+                  <i class="fa-regular fa-eye"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Terms & Conditions Checkbox -->
+            <div class="form-group" style="margin-top: 0.2rem;">
+              <label class="auth-checkbox-label" for="regTerms" style="align-items: flex-start;">
+                <input type="checkbox" id="regTerms" required style="margin-top: 3px;">
+                <span style="font-size: 0.8rem; line-height: 1.4;">
+                  Saya menyetujui Ketentuan Layanan &amp; Kebijakan Privasi Aish Catering Singkawang.
+                </span>
+              </label>
+            </div>
+
+            <!-- Register Submit Button -->
+            <button type="submit" class="btn-auth-submit" id="btnRegisterSubmit">
+              <i class="fa-solid fa-spinner spinner-icon"></i>
+              <span class="btn-text-content">
+                <span>Daftar Akun Aish Catering</span>
+                <i class="fa-solid fa-arrow-right" style="margin-left: 6px;"></i>
+              </span>
+            </button>
+
+          </form>
+
+          <!-- Switch to Login -->
+          <div class="auth-switch-footer">
+            Sudah memiliki akun terdaftar? 
+            <a href="#" class="auth-switch-link" id="toLoginBtn">Masuk di sini</a>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- MODAL: LUPA KATA SANDI -->
+  <div class="auth-modal-overlay" id="forgotModal" role="dialog" aria-modal="true" aria-labelledby="forgotTitle">
+    <div class="auth-modal-content">
+      <button type="button" class="auth-modal-close" id="forgotModalClose" aria-label="Tutup Jendela">&times;</button>
+      
+      <div style="text-align: center; margin-bottom: 1.25rem;">
+        <div style="width: 52px; height: 52px; border-radius: 14px; background: rgba(197,160,89,0.15); color: #775a19; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; margin: 0 auto 0.75rem auto;">
+          <i class="fa-solid fa-key"></i>
+        </div>
+        <h3 id="forgotTitle" style="font-family: var(--font-serif); font-size: 1.4rem; color: #05281a; margin-bottom: 0.35rem;">Pemulihan Kata Sandi</h3>
+        <p style="font-size: 0.84rem; color: #636b65;">
+          Masukkan email atau nomor WhatsApp yang terdaftar. Kami akan mengirimkan tautan / kode untuk mengatur ulang kata sandi Anda.
+        </p>
+      </div>
+
+      <form id="forgotForm">
+        <div class="form-group" style="margin-bottom: 1.25rem;">
+          <label for="forgotEmail" class="form-label">Email atau Nomor WhatsApp</label>
+          <div class="input-icon-wrapper">
+            <i class="fa-regular fa-envelope input-left-icon"></i>
+            <input type="text" id="forgotEmail" class="auth-input" placeholder="contoh: nama@email.com atau 0812..." required>
+          </div>
+        </div>
+
+        <button type="submit" class="btn-auth-submit" style="width: 100%;">
+          <span>Kirim Tautan Pemulihan</span>
+          <i class="fa-solid fa-paper-plane" style="margin-left: 6px;"></i>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div class="auth-toast-container" id="authToastContainer"></div>
+
+  <!-- Scripts -->
+  <script src="js/auth.js?v=1"></script>
+</body>
+</html>

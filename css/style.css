@@ -646,6 +646,51 @@ button {
   border-radius: 2px;
 }
 
+/* Login Nav Link — distinguished pill style */
+.nav-link-login {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 16px !important;
+  background: transparent;
+  color: var(--color-primary-emerald) !important;
+  border: 1.5px solid rgba(29, 62, 47, 0.22);
+  border-radius: 999px;
+  font-size: 0.88rem !important;
+  font-weight: 700 !important;
+  transition: all var(--transition-fast);
+}
+
+.nav-link-login i {
+  font-size: 0.88rem;
+  color: var(--color-gold-antique);
+  transition: color var(--transition-fast);
+}
+
+.nav-link-login:hover {
+  background: var(--color-primary-emerald) !important;
+  color: #ffffff !important;
+  border-color: var(--color-primary-emerald);
+  box-shadow: 0 4px 14px rgba(29, 62, 47, 0.2);
+  transform: translateY(-1px);
+}
+
+.nav-link-login:hover i {
+  color: var(--color-gold-leaf);
+}
+
+/* Aktif (saat di halaman login) */
+.nav-link-login.active {
+  background: var(--color-primary-emerald) !important;
+  color: #ffffff !important;
+  border-color: var(--color-primary-emerald);
+}
+
+.nav-link-login.active::after {
+  display: none; /* Tidak perlu underline untuk pill style */
+}
+
+
 /* Header Actions */
 .header-actions {
   display: flex;
@@ -690,6 +735,43 @@ button {
 
 .btn-concept-consult:hover i {
   color: #FFFFFF;
+}
+
+/* Header Login Button */
+.btn-header-login {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  background-color: transparent;
+  color: var(--color-primary-emerald);
+  font-family: var(--font-sans);
+  font-size: 0.92rem;
+  font-weight: 600;
+  padding: 9px 18px;
+  border-radius: 8px;
+  border: 1.5px solid rgba(29, 62, 47, 0.25);
+  text-decoration: none;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.btn-header-login i {
+  color: var(--color-gold-antique);
+  font-size: 0.95rem;
+}
+
+.btn-header-login:hover {
+  background-color: var(--color-primary-emerald);
+  color: #FFFFFF;
+  border-color: var(--color-primary-emerald);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(22, 48, 36, 0.12);
+}
+
+.btn-header-login:hover i {
+  color: var(--color-gold-leaf);
 }
 
 /* Mobile Toggle Hamburger Button */

@@ -82,6 +82,14 @@
       }
     }
 
+    // Tampilkan link "Menu Konsumen" di desktop & mobile nav hanya jika user sudah login
+    const navMenuKonsumenLi = document.getElementById('navMenuKonsumenLi');
+    const mobileNavMenuKonsumenLi = document.getElementById('mobileNavMenuKonsumenLi');
+    if (user) {
+      if (navMenuKonsumenLi) navMenuKonsumenLi.style.display = '';
+      if (mobileNavMenuKonsumenLi) mobileNavMenuKonsumenLi.style.display = '';
+    }
+
     if (!loginBtn) return;
 
     if (user) {
